@@ -32,6 +32,13 @@ button:focus-visible,input:focus-visible,select:focus-visible { outline:3px soli
 .sidebar-top { padding:0 10px 27px; border-bottom:1px solid var(--line); }
 .eyebrow { margin:0; color:#8993a2; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
 .workspace-select { width:100%; display:flex; align-items:center; justify-content:space-between; padding:12px 0 0; color:var(--ink); background:transparent; font-size:13px; font-weight:600; text-align:left; }
+.workspace-select:hover { color:var(--navy-2); }
+.sidebar-menu { margin:10px 0 -10px; padding:5px; background:var(--surface); border:1px solid var(--line); border-radius:6px; box-shadow:var(--shadow); }
+.sidebar-menu button { display:flex; align-items:center; justify-content:space-between; width:100%; padding:8px; color:var(--ink-soft); background:transparent; border-radius:4px; text-align:left; font-size:11px; }
+.sidebar-menu button:hover { color:var(--ink); background:var(--surface-soft); }
+.profile-row { width:100%; color:inherit; background:transparent; text-align:left; cursor:pointer; }
+.profile-row:hover { background:#f0f2f5; }
+.profile-menu { margin:0 0 10px; }
 .side-nav { padding:27px 0; }
 .nav-label { padding:0 10px; margin-bottom:10px; }
 .nav-item { width:100%; display:flex; align-items:center; gap:11px; padding:10px; margin:2px 0; border-radius:6px; color:#657184; background:transparent; text-align:left; font-size:13px; transition:.16s ease; }
