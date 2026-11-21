@@ -399,6 +399,7 @@ async def trigger_triage_run(payload: RunPipelineRequest):
                 client=client,
                 config=config,
                 failure_rate=payload.simulate_failures,
+                fallback_on_rate_limit=True,
             )
             res = await run_pipeline(
                 input_path=input_path,

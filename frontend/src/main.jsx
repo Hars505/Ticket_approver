@@ -74,6 +74,7 @@ function App() {
   const [toast, setToast] = useState('')
   const [expandedId, setExpandedId] = useState(null)
   const [mobileNav, setMobileNav] = useState(false)
+  const [executionMode, setExecutionMode] = useState('offline')
 
   const [overviewData, setOverviewData] = useState({
     total: 300,
@@ -185,7 +186,7 @@ function App() {
   async function runTriage() {
     if (isRunning) return
     setIsRunning(true)
-    notify('Starting triage execution…')
+    notify(`Starting triage with ${executionMode === 'offline' ? 'Fast Local Engine' : 'Google Gemini AI'}…`)
     try {
       const res = await fetch(`${API_BASE}/api/triage/run`, {
         method: 'POST',
@@ -193,7 +194,8 @@ function App() {
         body: JSON.stringify({
           threshold: threshold,
           simulate_failures: chaos,
-          concurrency: 10,
+          concurrency: executionMode === 'offline' ? 10 : 3,
+          offline: executionMode === 'offline',
         }),
       })
       if (res.ok) {
@@ -360,6 +362,17 @@ function App() {
           <span className="brand-context">support triage</span>
         </div>
         <div className="topbar-actions">
+          <button
+            className="button button-ghost mode-toggle"
+            onClick={() => {
+              const next = executionMode === 'offline' ? 'gemini' : 'offline'
+              setExecutionMode(next)
+              notify(`Switched engine to ${next === 'offline' ? 'Fast Local Engine' : 'Google Gemini AI'}`)
+            }}
+            title="Toggle between Fast Local Engine and Google Gemini AI"
+          >
+            {executionMode === 'offline' ? '⚡ Local Engine' : '✨ Gemini Cloud AI'}
+          </button>
           <div className="run-status">
             <span className={`status-dot ${isRunning ? 'is-running' : ''}`} />
             {isRunning ? 'Triage running…' : `${overviewData.total || 0} tickets processed`}

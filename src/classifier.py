@@ -54,11 +54,13 @@ class AsyncClassifier:
         config: Optional[ClassifierConfig] = None,
         rng: Optional[random.Random] = None,
         failure_rate: float = 0.0,
+        fallback_on_rate_limit: bool = False,
     ):
         self.client = client
         self.config = config or ClassifierConfig()
         self.rng = rng or random.Random()
         self.failure_rate = max(0.0, min(1.0, failure_rate))
+        self.fallback_on_rate_limit = fallback_on_rate_limit
 
     async def _attempt_request(self, ticket: Ticket) -> str:
         url = f"{self.config.base_url.rstrip('/')}/chat/completions"
@@ -156,6 +158,13 @@ class AsyncClassifier:
             except Exception as exc:
                 last_error_message = f"Unexpected error: {exc}"
                 break
+
+        if self.fallback_on_rate_limit and "429" in last_error_message and self.failure_rate == 0.0:
+            fallback_clf = OfflineClassifier(rng=self.rng)
+            fb_res = await fallback_clf.classify(ticket)
+            if isinstance(fb_res, TriageResult):
+                fb_res.reasoning += " [Provider 15 RPM quota limit reached; resolved via local fallback]"
+                return fb_res
 
         return ModelFailure(
             escalation_reason="model_unavailable",
