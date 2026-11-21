@@ -49,6 +49,17 @@ def build_parser() -> argparse.ArgumentParser:
         default=8.0,
         help="Per-request timeout in seconds (default: 8.0)",
     )
+    parser.add_argument(
+        "--serve",
+        action="store_true",
+        help="Start the FastAPI REST backend server for the frontend",
+    )
+    parser.add_argument(
+        "--port",
+        type=int,
+        default=8000,
+        help="Port to run the API server on (default: 8000)",
+    )
     return parser
 
 
@@ -109,6 +120,13 @@ async def _main_async(args: argparse.Namespace) -> int:
 def main() -> None:
     parser = build_parser()
     args = parser.parse_args()
+
+    if args.serve:
+        import uvicorn
+        print(f"[INFO] Starting Support Ticket Triage API server on http://localhost:{args.port}...")
+        uvicorn.run("src.api:app", host="0.0.0.0", port=args.port, reload=True)
+        return
+
     try:
         sys.exit(asyncio.run(_main_async(args)))
     except KeyboardInterrupt:
