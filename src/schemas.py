@@ -58,3 +58,4 @@ class ReviewRecord(BaseModel):
     escalation_reason: str
     latency_ms: Optional[float] = None
     metadata: dict[str, Any] = Field(default_factory=dict)
+

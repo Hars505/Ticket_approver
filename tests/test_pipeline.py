@@ -157,3 +157,4 @@ def test_pipeline_execution_and_invariants(tmp_path: Path):
     assert "p95" in report_text or "P95" in report_text
     assert "billing" in report_text
     assert "insufficient_context" in report_text
+

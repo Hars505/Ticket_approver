@@ -100,3 +100,4 @@ def load_tickets(path: Path | str) -> list[Ticket | ReviewRecord]:
 
     else:
         raise ValueError(f"Unsupported file format: {suffix}. Must be .json or .csv")
+

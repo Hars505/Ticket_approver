@@ -311,3 +311,4 @@ async def run_pipeline(
     _atomic_write_file(out_dir / "report.md", result.report_text)
 
     return result
+

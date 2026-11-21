@@ -222,3 +222,4 @@ class OfflineClassifier(AsyncClassifier):
             confidence=conf,
             reasoning=f"Offline deterministic rule matched '{cat.value}' with priority '{prio.value}'.",
         )
+

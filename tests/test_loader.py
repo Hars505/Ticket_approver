@@ -95,3 +95,4 @@ def test_load_tickets_unsupported_format(tmp_path: Path):
 
     with pytest.raises(ValueError, match="Unsupported file format"):
         load_tickets(unknown)
+

@@ -236,3 +236,4 @@ To scale this service from batch runs to a continuous 50,000 ticket/day producti
 6. **Cost & Latency SLO Management**:
    - Target Latency SLO: p95 `< 1200ms`, p99 `< 2500ms`.
    - Dynamic Model Cascades: Route standard queries to cost-efficient models (e.g., `gpt-4o-mini`, `gemini-1.5-flash`), reserving larger reasoning models only for high-entropy tickets that fail confidence thresholds on the first pass.
+
