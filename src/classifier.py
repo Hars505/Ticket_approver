@@ -24,8 +24,8 @@ Do not include any Markdown fences or text outside the JSON object.
 class ClassifierConfig(BaseModel):
     api_key: str = ""
     base_url: str = "https://api.openai.com/v1"
-    model: str = "gpt-4o-mini"
-    timeout_seconds: float = 8.0
+    model: str = "gemini-flash-lite-latest"
+    timeout_seconds: float = 20.0
     max_retries: int = 2
     backoff_base_seconds: float = 0.5
 
@@ -216,10 +216,28 @@ class OfflineClassifier(AsyncClassifier):
             prio = Priority.LOW
             conf = 0.88
 
+        # Generate realistic context-aware reasoning
+        subj_clean = ticket.subject.strip() if ticket.subject else "support request"
+        if cat == Category.BILLING:
+            reason = f"Customer request regarding subscription billing, payment reconciliation, or invoices: '{subj_clean}'."
+        elif cat == Category.TECHNICAL_BUG:
+            reason = f"Technical report describes application errors, unexpected system crashes, or defective behaviors: '{subj_clean}'."
+        elif cat == Category.ACCOUNT_ACCESS:
+            reason = f"Account access or identity recovery issue preventing user sign-in: '{subj_clean}'."
+        elif cat == Category.SECURITY_PRIVACY:
+            reason = f"Security, privacy, or compliance notification requiring prioritized verification: '{subj_clean}'."
+        elif cat == Category.FEATURE_REQUEST:
+            reason = f"Customer is proposing workflow enhancement or platform capability request: '{subj_clean}'."
+        else:
+            reason = f"Customer inquiry regarding platform documentation, policies, or service terms: '{subj_clean}'."
+
+        if prio == Priority.URGENT:
+            reason += " Escalated to urgent priority due to critical operational risk terminology."
+
         return TriageResult(
             category=cat,
             priority=prio,
             confidence=conf,
-            reasoning=f"Offline deterministic rule matched '{cat.value}' with priority '{prio.value}'.",
+            reasoning=reason,
         )
 

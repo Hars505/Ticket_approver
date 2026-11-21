@@ -1,2984 +1,3002 @@
 [
   {
     "id": "TCK-0001",
-    "subject": "Invoice request for renewal #1",
-    "body": "Please provide the official invoice and VAT receipt for our annual enterprise subscription renewal. (Ref: ticket-1)",
-    "created_at": "2026-11-21T00:00:00Z",
+    "subject": "Invoice request for annual Enterprise renewal",
+    "body": "Could you please send over the finalized VAT-compliant invoice and tax receipt for our annual Enterprise plan renewal? Our finance department requires it before month-end.",
+    "created_at": "2026-11-01T00:00:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 0
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0002",
-    "subject": "Charged twice for subscription #2",
-    "body": "I checked my bank statement and noticed a double charge on November 15th. Please refund the duplicate. (Ref: ticket-2)",
-    "created_at": "2026-11-21T01:01:00Z",
+    "subject": "Duplicate subscription charge on November 15",
+    "body": "I reviewed our banking statement and noticed we were billed $249 twice on November 15th. Please investigate and issue a refund for the duplicate transaction.",
+    "created_at": "2026-11-02T01:07:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 1
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0003",
-    "subject": "Upgrade payment failed #3",
-    "body": "When entering my corporate credit card to upgrade to Pro tier, the checkout keeps rejecting with card decline. (Ref: ticket-3)",
-    "created_at": "2026-11-21T02:02:00Z",
+    "subject": "Corporate credit card declined during upgrade",
+    "body": "We are attempting to upgrade our team from Pro to Enterprise, but our corporate Amex is being rejected with a card declined error code 2004.",
+    "created_at": "2026-11-03T02:14:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 2
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0004",
-    "subject": "Refund request for unused seats #4",
-    "body": "We downsized our team by 5 seats last month and would like a pro-rated refund or credit. (Ref: ticket-4)",
-    "created_at": "2026-11-21T03:03:00Z",
+    "subject": "Pro-rated refund request after team downsizing",
+    "body": "We reduced our active seat count from 45 to 25 seats earlier this week. Can you confirm if a pro-rated credit will be applied to our upcoming invoice?",
+    "created_at": "2026-11-04T03:21:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 3
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0005",
-    "subject": "Update credit card details #5",
-    "body": "Our card expired and we need to update billing information before the next billing cycle. (Ref: ticket-5)",
-    "created_at": "2026-11-21T04:04:00Z",
+    "subject": "Update billing contact and accounts payable email",
+    "body": "Our primary accounts payable contact has changed. Please update our billing notifications to reach finance@acmecorp.com instead of our old domain.",
+    "created_at": "2026-11-05T04:28:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 4
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0006",
-    "subject": "API returns 500 internal server error #6",
-    "body": "Sending a POST request to /v1/records results in intermittent 500 error responses during peak times. (Ref: ticket-6)",
-    "created_at": "2026-11-21T05:05:00Z",
+    "subject": "Tax exemption certificate submission",
+    "body": "Our organization is a registered 501(c)(3) non-profit. I have attached our IRS tax exemption letter to remove sales tax from future invoices.",
+    "created_at": "2026-11-06T05:35:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 5
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0007",
-    "subject": "Dashboard UI freezes on export #7",
-    "body": "When clicking Export CSV on the analytics page, the browser tab freezes completely and crashes. (Ref: ticket-7)",
-    "created_at": "2026-11-21T06:06:00Z",
+    "subject": "Unexpected overage charges on API usage",
+    "body": "Our November bill reflects $620 in overage charges for API calls. Could you provide an itemized breakdown of usage per API key?",
+    "created_at": "2026-11-07T06:42:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 6
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0008",
-    "subject": "Webhook events not firing #8",
-    "body": "Webhook notifications for ticket_updated events have stopped delivering to our endpoint since morning. (Ref: ticket-8)",
-    "created_at": "2026-11-21T07:07:00Z",
+    "subject": "Wire transfer payment confirmation needed",
+    "body": "We sent a wire transfer for invoice INV-88293 four business days ago. Could you please confirm receipt and clear the pending invoice banner?",
+    "created_at": "2026-11-08T07:49:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 7
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0009",
-    "subject": "Mobile app crashing on launch #9",
-    "body": "After updating to iOS version 4.2.1, the application immediately closes upon opening. (Ref: ticket-9)",
-    "created_at": "2026-11-21T08:08:00Z",
+    "subject": "Receipt missing company registration number",
+    "body": "The invoice generated for our recent purchase lacks our registered European VAT ID: DE309281923. Please regenerate the invoice with these details.",
+    "created_at": "2026-11-09T08:56:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 8
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0010",
-    "subject": "Search filter returns empty results #10",
-    "body": "Filtering tickets by date range is failing to return records that exist in the database. (Ref: ticket-10)",
-    "created_at": "2026-11-21T09:09:00Z",
+    "subject": "Clarification on seat pricing tiers for 2027",
+    "body": "We are planning our next fiscal year budget and would like clarification on volume discounts for adding 100+ additional seats.",
+    "created_at": "2026-11-10T09:03:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 9
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0011",
-    "subject": "Password reset link expired #11",
-    "body": "I requested a password reset email but the link says expired as soon as I click it. (Ref: ticket-11)",
-    "created_at": "2026-11-21T10:10:00Z",
+    "subject": "API returning intermittent 502 Bad Gateway under load",
+    "body": "Between 14:00 and 15:30 UTC, our integration services received repeated 502 Bad Gateway responses when querying the /v1/records/batch endpoint.",
+    "created_at": "2026-11-11T10:10:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 10
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0012",
-    "subject": "Lost 2FA authenticator device #12",
-    "body": "I got a new phone and no longer have access to my Google Authenticator 2FA tokens. (Ref: ticket-12)",
-    "created_at": "2026-11-21T11:11:00Z",
+    "subject": "Browser tab freezes when exporting large CSV analytics",
+    "body": "When attempting to export more than 10,000 analytics records to CSV, the Chrome tab memory consumption spikes to 3GB and crashes.",
+    "created_at": "2026-11-12T11:17:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 11
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0013",
-    "subject": "SSO Okta login loop #13",
-    "body": "Our team is stuck in a redirect loop when attempting Single Sign-On via Okta SAML. (Ref: ticket-13)",
-    "created_at": "2026-11-21T12:12:00Z",
+    "subject": "Webhook delivery stopped firing on ticket_status_updated",
+    "body": "Since 09:00 EST today, webhook events for ticket_status_updated have stopped dispatching to our listener URL: https://api.client.io/webhooks.",
+    "created_at": "2026-11-13T12:24:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 12
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0014",
-    "subject": "Unlock team admin account #14",
-    "body": "My administrator account was locked out after too many incorrect password attempts. (Ref: ticket-14)",
-    "created_at": "2026-11-21T13:13:00Z",
+    "subject": "iOS app crashes immediately on launch after version 4.2",
+    "body": "Several members of our field engineering team report that the mobile app crashes on the splash screen after upgrading to iOS 18.2.",
+    "created_at": "2026-11-14T13:31:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 13
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0015",
-    "subject": "Email verification not arriving #15",
-    "body": "Created a new user account but the confirmation verification email has not arrived in inbox or spam. (Ref: ticket-15)",
-    "created_at": "2026-11-21T14:14:00Z",
+    "subject": "Search filters return zero results when filtering by date range",
+    "body": "Searching for tickets resolved between November 1 and November 15 returns an empty table, despite matching records existing in the database.",
+    "created_at": "2026-11-15T14:38:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 14
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0016",
-    "subject": "Urgent security breach inquiry #16",
-    "body": "We observed unauthorized API token usage originating from an unfamiliar IP address. Possible security breach. (Ref: ticket-16)",
-    "created_at": "2026-11-21T15:15:00Z",
+    "subject": "CORS header missing on preflight OPTIONS requests",
+    "body": "Our frontend application is blocked from accessing the staging API endpoint due to a missing Access-Control-Allow-Origin header on OPTIONS preflight.",
+    "created_at": "2026-11-16T15:45:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 15
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0017",
-    "subject": "GDPR data deletion request #17",
-    "body": "Under GDPR Article 17, I formally request deletion of all personal data associated with my account. (Ref: ticket-17)",
-    "created_at": "2026-11-21T16:16:00Z",
+    "subject": "Data discrepancy between dashboard charts and raw exports",
+    "body": "The dashboard overview displays 1,420 completed actions for yesterday, but the raw CSV export only contains 1,298 matching rows.",
+    "created_at": "2026-11-17T16:52:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 16
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0018",
-    "subject": "Vulnerability report on auth endpoint #18",
-    "body": "Our penetration testing team discovered an issue where session tokens are not properly invalidated on logout. (Ref: ticket-18)",
-    "created_at": "2026-11-21T17:17:00Z",
+    "subject": "GraphQL mutation times out when attaching multiple files",
+    "body": "Executing the attachMedia mutation with more than 3 files consistently times out after 30 seconds with an execution timeout error.",
+    "created_at": "2026-11-18T17:59:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 17
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0019",
-    "subject": "Data loss detected in customer table #19",
-    "body": "Several rows in our customer table were deleted unintentionally. Potential data loss issue. (Ref: ticket-19)",
-    "created_at": "2026-11-21T18:18:00Z",
+    "subject": "SSO redirect loops back to login page on Firefox",
+    "body": "Users authenticating via SAML SSO on Firefox 132 are caught in an infinite redirect loop between the IdP and the workspace dashboard.",
+    "created_at": "2026-11-19T18:06:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 18
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0020",
-    "subject": "Suspicious login notification #20",
-    "body": "Received an alert for a login from a different country that was not authorized by me. (Ref: ticket-20)",
-    "created_at": "2026-11-21T19:19:00Z",
+    "subject": "Pagination next button disabled prematurely on page 3",
+    "body": "In the user management table, the next page chevron is greyed out on page 3 even though the counter shows 450 total users with 25 per page.",
+    "created_at": "2026-11-20T19:13:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 19
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0021",
-    "subject": "Support for dark mode theme #21",
-    "body": "Would love to see native dark mode support in the desktop web application. (Ref: ticket-21)",
+    "subject": "Password reset email not arriving in mailbox or spam",
+    "body": "I submitted a password reset request 45 minutes ago for user alex@enterprise.com, but no email has arrived. Mail filters show no blocked messages.",
     "created_at": "2026-11-21T20:20:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 20
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0022",
-    "subject": "Bulk export to parquet format #22",
-    "body": "It would be tremendously helpful if we could export telemetry data directly in Parquet format. (Ref: ticket-22)",
-    "created_at": "2026-11-21T21:21:00Z",
+    "subject": "Lost multi-factor authenticator device after phone upgrade",
+    "body": "I recently switched to a new phone and lost access to my Google Authenticator app. Please assist with resetting my account MFA.",
+    "created_at": "2026-11-22T21:27:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 21
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0023",
-    "subject": "Custom webhooks per workspace #23",
-    "body": "We request the ability to configure separate webhook endpoints for different project workspaces. (Ref: ticket-23)",
-    "created_at": "2026-11-21T22:22:00Z",
+    "subject": "Admin locked out due to maximum failed login attempts",
+    "body": "Our workspace administrator entered an incorrect password multiple times and the account is now locked. We need access restored urgently.",
+    "created_at": "2026-11-23T22:34:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 22
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0024",
-    "subject": "Slack notification integration #24",
-    "body": "Is there a roadmap item for direct notifications into designated Slack channels? (Ref: ticket-24)",
-    "created_at": "2026-11-21T23:23:00Z",
+    "subject": "Okta SAML assertion signature validation failed",
+    "body": "When users attempt to sign in via Okta, our system displays error: Invalid SAML Response signature. Certificates match our configuration.",
+    "created_at": "2026-11-24T23:41:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 23
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0025",
-    "subject": "SAML SSO for Starter plan #25",
-    "body": "Please consider making SAML SSO available on lower tier plans for small security-conscious startups. (Ref: ticket-25)",
-    "created_at": "2026-11-21T00:24:00Z",
+    "subject": "Transfer workspace ownership to new team lead",
+    "body": "Our previous workspace owner has departed the company. We need to transfer primary ownership privileges to sarah.connor@acme.com.",
+    "created_at": "2026-11-25T00:48:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 24
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0026",
-    "subject": "Documentation for API v2 #26",
-    "body": "Where can I find complete reference documentation and code samples for the v2 REST API? (Ref: ticket-26)",
-    "created_at": "2026-11-21T01:25:00Z",
+    "subject": "User invitation links failing with token expired message",
+    "body": "New employee invitation links generated today show token expired immediately upon being opened by the recipient.",
+    "created_at": "2026-11-26T01:55:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 25
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0027",
-    "subject": "Supported browser list #27",
-    "body": "Which versions of Chromium and Firefox are officially supported by your web client? (Ref: ticket-27)",
-    "created_at": "2026-11-21T02:26:00Z",
+    "subject": "Remove departed contractor from all project permissions",
+    "body": "A contract developer ended their engagement today. Please immediately revoke their access tokens and session cookies across all workspaces.",
+    "created_at": "2026-11-27T02:02:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 26
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0028",
-    "subject": "Enterprise SLA terms inquiry #28",
-    "body": "Could you provide details on the guaranteed uptime SLA for the Enterprise tier? (Ref: ticket-28)",
-    "created_at": "2026-11-21T03:27:00Z",
+    "subject": "Cannot generate new personal access token",
+    "body": "In developer settings, clicking Generate New Token yields an error: Token generation quota exceeded for current user role.",
+    "created_at": "2026-11-28T03:09:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 27
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0029",
-    "subject": "Office hours for technical support #29",
-    "body": "What are your standard support operating hours for customers in the European region? (Ref: ticket-29)",
-    "created_at": "2026-11-21T04:28:00Z",
+    "subject": "Google OAuth login fails with invalid_client parameter",
+    "body": "Clicking Sign in with Google returns a 400 invalid_client error from accounts.google.com for all users on our custom domain.",
+    "created_at": "2026-11-01T04:16:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 28
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0030",
-    "subject": "Partner program application #30",
-    "body": "We are interested in becoming a certified integration partner. How do we apply? (Ref: ticket-30)",
-    "created_at": "2026-11-21T05:29:00Z",
+    "subject": "Account verification link missing from confirmation email",
+    "body": "The verification email arrived, but the confirmation button contains an empty href attribute.",
+    "created_at": "2026-11-02T05:23:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 29
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0031",
-    "subject": "Invoice request for renewal #31",
-    "body": "Please provide the official invoice and VAT receipt for our annual enterprise subscription renewal. (Ref: ticket-31)",
-    "created_at": "2026-11-21T06:30:00Z",
+    "subject": "Suspected unauthorized login attempt from foreign IP",
+    "body": "Our SIEM system flagged an administrative login originating from an unfamiliar IP in Belarus at 03:14 UTC. Please terminate all active sessions.",
+    "created_at": "2026-11-03T06:30:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 30
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0032",
-    "subject": "Charged twice for subscription #32",
-    "body": "I checked my bank statement and noticed a double charge on November 15th. Please refund the duplicate. (Ref: ticket-32)",
-    "created_at": "2026-11-21T07:31:00Z",
+    "subject": "GDPR Article 17 Right to Erasure request",
+    "body": "In accordance with GDPR Article 17, I formally request the permanent deletion of all personal identifiable data associated with user ID 88291.",
+    "created_at": "2026-11-04T07:37:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 31
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0033",
-    "subject": "Upgrade payment failed #33",
-    "body": "When entering my corporate credit card to upgrade to Pro tier, the checkout keeps rejecting with card decline. (Ref: ticket-33)",
-    "created_at": "2026-11-21T08:32:00Z",
+    "subject": "Report of potential SQL injection vulnerability in search parameter",
+    "body": "Our security auditor identified that the search query parameter on /api/v1/search does not sanitize semicolon-delimited inputs properly.",
+    "created_at": "2026-11-05T08:44:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 32
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0034",
-    "subject": "Refund request for unused seats #34",
-    "body": "We downsized our team by 5 seats last month and would like a pro-rated refund or credit. (Ref: ticket-34)",
-    "created_at": "2026-11-21T09:33:00Z",
+    "subject": "Exposed API token detected in public GitHub repository",
+    "body": "A developer inadvertently pushed an API secret to an open repository. We revoked the key, but need an audit of requests made in the last 24h.",
+    "created_at": "2026-11-06T09:51:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 33
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0035",
-    "subject": "Update credit card details #35",
-    "body": "Our card expired and we need to update billing information before the next billing cycle. (Ref: ticket-35)",
-    "created_at": "2026-11-21T10:34:00Z",
+    "subject": "Security questionnaire for SOC 2 Type II compliance",
+    "body": "Our procurement compliance team requires your latest SOC 2 Type II report and third-party penetration test summary before we can proceed.",
+    "created_at": "2026-11-07T10:58:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 34
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0036",
-    "subject": "API returns 500 internal server error #36",
-    "body": "Sending a POST request to /v1/records results in intermittent 500 error responses during peak times. (Ref: ticket-36)",
-    "created_at": "2026-11-21T11:35:00Z",
+    "subject": "Inquiry regarding data encryption standards at rest",
+    "body": "Could you provide technical documentation verifying that customer database volumes are encrypted using AES-256 keys managed via KMS?",
+    "created_at": "2026-11-08T11:05:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 35
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0037",
-    "subject": "Dashboard UI freezes on export #37",
-    "body": "When clicking Export CSV on the analytics page, the browser tab freezes completely and crashes. (Ref: ticket-37)",
-    "created_at": "2026-11-21T12:36:00Z",
+    "subject": "Suspicious phishing emails impersonating support notifications",
+    "body": "Our employees received emails claiming to be from your billing team demanding immediate credit card verification. Suspected spear-phishing.",
+    "created_at": "2026-11-09T12:12:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 36
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0038",
-    "subject": "Webhook events not firing #38",
-    "body": "Webhook notifications for ticket_updated events have stopped delivering to our endpoint since morning. (Ref: ticket-38)",
-    "created_at": "2026-11-21T13:37:00Z",
+    "subject": "Audit logs request for administrative permission changes in Q3",
+    "body": "We require an immutable export of all role and permission modifications performed by workspace admins between July 1 and September 30.",
+    "created_at": "2026-11-10T13:19:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 37
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0039",
-    "subject": "Mobile app crashing on launch #39",
-    "body": "After updating to iOS version 4.2.1, the application immediately closes upon opening. (Ref: ticket-39)",
-    "created_at": "2026-11-21T14:38:00Z",
+    "subject": "Data processing addendum (DPA) execution request",
+    "body": "Please provide a countersigned Data Processing Addendum including Standard Contractual Clauses for our EU-US data transfers.",
+    "created_at": "2026-11-11T14:26:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 38
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0040",
-    "subject": "Search filter returns empty results #40",
-    "body": "Filtering tickets by date range is failing to return records that exist in the database. (Ref: ticket-40)",
-    "created_at": "2026-11-21T15:39:00Z",
+    "subject": "Subprocessor notification inquiry",
+    "body": "Has your organization onboarded any new third-party subprocessors for data storage or analytics within the past 90 days?",
+    "created_at": "2026-11-12T15:33:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 39
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0041",
-    "subject": "Password reset link expired #41",
-    "body": "I requested a password reset email but the link says expired as soon as I click it. (Ref: ticket-41)",
-    "created_at": "2026-11-21T16:40:00Z",
+    "subject": "Request for native dark mode interface in web console",
+    "body": "Our support agents spend 8+ hours a day in the portal. A native dark mode theme would significantly reduce eye fatigue.",
+    "created_at": "2026-11-13T16:40:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 40
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0042",
-    "subject": "Lost 2FA authenticator device #42",
-    "body": "I got a new phone and no longer have access to my Google Authenticator 2FA tokens. (Ref: ticket-42)",
-    "created_at": "2026-11-21T17:41:00Z",
+    "subject": "Ability to schedule automated recurring CSV reports via email",
+    "body": "It would save our operations team hours if we could schedule weekly ticket volume summaries to be emailed every Monday at 08:00 AM.",
+    "created_at": "2026-11-14T17:47:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 41
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0043",
-    "subject": "SSO Okta login loop #43",
-    "body": "Our team is stuck in a redirect loop when attempting Single Sign-On via Okta SAML. (Ref: ticket-43)",
-    "created_at": "2026-11-21T18:42:00Z",
+    "subject": "Webhook payload signing using HMAC SHA-256 signatures",
+    "body": "We strongly request that outbound webhook deliveries include an X-Hub-Signature header so our server can verify authenticity.",
+    "created_at": "2026-11-15T18:54:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 42
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0044",
-    "subject": "Unlock team admin account #44",
-    "body": "My administrator account was locked out after too many incorrect password attempts. (Ref: ticket-44)",
-    "created_at": "2026-11-21T19:43:00Z",
+    "subject": "Integration with Slack channels for real-time ticket alerts",
+    "body": "We would love direct bidirectional integration with Slack so urgent priority tickets post alerts into our #incident-response channel.",
+    "created_at": "2026-11-16T19:01:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 43
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0045",
-    "subject": "Email verification not arriving #45",
-    "body": "Created a new user account but the confirmation verification email has not arrived in inbox or spam. (Ref: ticket-45)",
-    "created_at": "2026-11-21T20:44:00Z",
+    "subject": "Support for custom ticket status workflows and transitions",
+    "body": "We need the ability to define custom states such as Pending Vendor and Awaiting Customer Review in addition to Open and Closed.",
+    "created_at": "2026-11-17T20:08:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 44
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0046",
-    "subject": "Urgent security breach inquiry #46",
-    "body": "We observed unauthorized API token usage originating from an unfamiliar IP address. Possible security breach. (Ref: ticket-46)",
-    "created_at": "2026-11-21T21:45:00Z",
+    "subject": "Configurable auto-assignment rules based on customer language",
+    "body": "We receive tickets in English, Spanish, and German. Automatic assignment by detected language would streamline triage immensely.",
+    "created_at": "2026-11-18T21:15:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 45
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0047",
-    "subject": "GDPR data deletion request #47",
-    "body": "Under GDPR Article 17, I formally request deletion of all personal data associated with my account. (Ref: ticket-47)",
-    "created_at": "2026-11-21T22:46:00Z",
+    "subject": "Bulk edit capabilities for updating tags and priorities",
+    "body": "Selecting 50 tickets at once and applying tags or changing priorities in one batch action would be a massive efficiency improvement.",
+    "created_at": "2026-11-19T22:22:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 46
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0048",
-    "subject": "Vulnerability report on auth endpoint #48",
-    "body": "Our penetration testing team discovered an issue where session tokens are not properly invalidated on logout. (Ref: ticket-48)",
-    "created_at": "2026-11-21T23:47:00Z",
+    "subject": "Export telemetry and event logs to AWS S3 or Datadog",
+    "body": "Please consider adding native log streaming so audit and operational events can stream directly to our enterprise Datadog instance.",
+    "created_at": "2026-11-20T23:29:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 47
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0049",
-    "subject": "Data loss detected in customer table #49",
-    "body": "Several rows in our customer table were deleted unintentionally. Potential data loss issue. (Ref: ticket-49)",
-    "created_at": "2026-11-21T00:48:00Z",
+    "subject": "Keyboard navigation shortcuts for triage queue workflow",
+    "body": "Adding keyboard shortcuts like j/k for navigating tickets and e to archive would make ticket processing much faster.",
+    "created_at": "2026-11-21T00:36:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 48
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0050",
-    "subject": "Suspicious login notification #50",
-    "body": "Received an alert for a login from a different country that was not authorized by me. (Ref: ticket-50)",
-    "created_at": "2026-11-21T01:49:00Z",
+    "subject": "Public status page widget embeddable on customer portal",
+    "body": "We want to embed your real-time platform uptime widget into our internal help center footer.",
+    "created_at": "2026-11-22T01:43:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 49
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0051",
-    "subject": "Support for dark mode theme #51",
-    "body": "Would love to see native dark mode support in the desktop web application. (Ref: ticket-51)",
-    "created_at": "2026-11-21T02:50:00Z",
+    "subject": "API rate limits and concurrency thresholds documentation",
+    "body": "Could you point us to the complete documentation on rate limits, requests per minute, and burst concurrency for our tier?",
+    "created_at": "2026-11-23T02:50:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 50
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0052",
-    "subject": "Bulk export to parquet format #52",
-    "body": "It would be tremendously helpful if we could export telemetry data directly in Parquet format. (Ref: ticket-52)",
-    "created_at": "2026-11-21T03:51:00Z",
+    "subject": "Supported TLS cipher suites for inbound webhooks",
+    "body": "Which specific cipher suites and minimum TLS versions are mandated by your incoming webhook ingestion endpoints?",
+    "created_at": "2026-11-24T03:57:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 51
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0053",
-    "subject": "Custom webhooks per workspace #53",
-    "body": "We request the ability to configure separate webhook endpoints for different project workspaces. (Ref: ticket-53)",
-    "created_at": "2026-11-21T04:52:00Z",
+    "subject": "Customer support service level agreement (SLA) terms",
+    "body": "Where can we review the guaranteed first-response and resolution SLA response times for Tier-1 Enterprise accounts?",
+    "created_at": "2026-11-25T04:04:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 52
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0054",
-    "subject": "Slack notification integration #54",
-    "body": "Is there a roadmap item for direct notifications into designated Slack channels? (Ref: ticket-54)",
-    "created_at": "2026-11-21T05:53:00Z",
+    "subject": "Standard operating hours and weekend support coverage",
+    "body": "Does your technical support desk provide 24/7/365 coverage for P1 incidents, or is weekend coverage on-call only?",
+    "created_at": "2026-11-26T05:11:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 53
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0055",
-    "subject": "SAML SSO for Starter plan #55",
-    "body": "Please consider making SAML SSO available on lower tier plans for small security-conscious startups. (Ref: ticket-55)",
-    "created_at": "2026-11-21T06:54:00Z",
+    "subject": "Browser compatibility and minimum version requirements",
+    "body": "Which versions of Chromium, Safari, and Firefox are officially tested and supported by the web dashboard?",
+    "created_at": "2026-11-27T06:18:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 54
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0056",
-    "subject": "Documentation for API v2 #56",
-    "body": "Where can I find complete reference documentation and code samples for the v2 REST API? (Ref: ticket-56)",
-    "created_at": "2026-11-21T07:55:00Z",
+    "subject": "Best practices guide for migrating historical tickets",
+    "body": "We are migrating from Zendesk and have 50,000 historical records. Do you provide a migration script or import guide?",
+    "created_at": "2026-11-28T07:25:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 55
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0057",
-    "subject": "Supported browser list #57",
-    "body": "Which versions of Chromium and Firefox are officially supported by your web client? (Ref: ticket-57)",
-    "created_at": "2026-11-21T08:56:00Z",
+    "subject": "Sandbox and staging environment provisioning",
+    "body": "Can we request a separate sandbox environment with mock data for our QA team to test integrations without affecting production?",
+    "created_at": "2026-11-01T08:32:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 56
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0058",
-    "subject": "Enterprise SLA terms inquiry #58",
-    "body": "Could you provide details on the guaranteed uptime SLA for the Enterprise tier? (Ref: ticket-58)",
-    "created_at": "2026-11-21T09:57:00Z",
+    "subject": "Partner certification and consultant directory",
+    "body": "How do we apply to become a certified implementation partner, and is there an accredited training curriculum available?",
+    "created_at": "2026-11-02T09:39:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 57
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0059",
-    "subject": "Office hours for technical support #59",
-    "body": "What are your standard support operating hours for customers in the European region? (Ref: ticket-59)",
-    "created_at": "2026-11-21T10:58:00Z",
+    "subject": "Scheduled maintenance windows and notification policies",
+    "body": "What is your standard notification lead time prior to scheduled database maintenance or infrastructure updates?",
+    "created_at": "2026-11-03T10:46:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 58
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0060",
-    "subject": "Partner program application #60",
-    "body": "We are interested in becoming a certified integration partner. How do we apply? (Ref: ticket-60)",
-    "created_at": "2026-11-21T11:59:00Z",
+    "subject": "Data retention policy for closed ticket attachments",
+    "body": "How long are uploaded file attachments retained after a support ticket has been closed and archived?",
+    "created_at": "2026-11-04T11:53:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 59
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0061",
-    "subject": "Invoice request for renewal #61",
-    "body": "Please provide the official invoice and VAT receipt for our annual enterprise subscription renewal. (Ref: ticket-61)",
-    "created_at": "2026-11-21T12:00:00Z",
+    "subject": "CRITICAL: Full production outage across US-East cluster",
+    "body": "Our entire production database cluster is completely down. Customer requests are failing with 500 errors. Complete service outage!",
+    "created_at": "2026-11-05T12:00:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 60
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0062",
-    "subject": "Charged twice for subscription #62",
-    "body": "I checked my bank statement and noticed a double charge on November 15th. Please refund the duplicate. (Ref: ticket-62)",
-    "created_at": "2026-11-21T13:01:00Z",
+    "subject": "EMERGENCY: Security breach detected in customer portal",
+    "body": "Our intrusion detection system confirmed unauthorized administrative access and potential data breach. Immediate incident response needed!",
+    "created_at": "2026-11-06T13:07:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 61
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0063",
-    "subject": "Upgrade payment failed #63",
-    "body": "When entering my corporate credit card to upgrade to Pro tier, the checkout keeps rejecting with card decline. (Ref: ticket-63)",
-    "created_at": "2026-11-21T14:02:00Z",
+    "subject": "URGENT: Entire team can't login to dashboard",
+    "body": "None of our 150 team members can authenticate into the portal. We are blocked from serving our customers right now!",
+    "created_at": "2026-11-07T14:14:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 62
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0064",
-    "subject": "Refund request for unused seats #64",
-    "body": "We downsized our team by 5 seats last month and would like a pro-rated refund or credit. (Ref: ticket-64)",
-    "created_at": "2026-11-21T15:03:00Z",
+    "subject": "HIGH PRIORITY: Catastrophic data loss in production table",
+    "body": "A migration script executed erroneously and deleted 40,000 active customer records. Urgent data loss emergency!",
+    "created_at": "2026-11-08T15:21:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 63
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0065",
-    "subject": "Update credit card details #65",
-    "body": "Our card expired and we need to update billing information before the next billing cycle. (Ref: ticket-65)",
-    "created_at": "2026-11-21T16:04:00Z",
+    "subject": "LEGAL NOTICE: Immediate lawsuit preservation notice",
+    "body": "Official notice of preservation of records regarding ongoing litigation. All deletion procedures for account ACME must cease immediately.",
+    "created_at": "2026-11-09T16:28:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 64
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0066",
-    "subject": "API returns 500 internal server error #66",
-    "body": "Sending a POST request to /v1/records results in intermittent 500 error responses during peak times. (Ref: ticket-66)",
-    "created_at": "2026-11-21T17:05:00Z",
+    "subject": "FRAUD ALERT: Multiple chargeback disputes reported",
+    "body": "We detected widespread fraudulent credit card transactions across 80 accounts resulting in massive chargeback notifications.",
+    "created_at": "2026-11-10T17:35:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 65
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0067",
-    "subject": "Dashboard UI freezes on export #67",
-    "body": "When clicking Export CSV on the analytics page, the browser tab freezes completely and crashes. (Ref: ticket-67)",
-    "created_at": "2026-11-21T18:06:00Z",
+    "subject": "SYSTEM DOWN: Payment gateway processing completely down",
+    "body": "All checkout and card processing services are down. Customers are unable to purchase subscriptions across the entire platform!",
+    "created_at": "2026-11-11T18:42:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 66
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0068",
-    "subject": "Webhook events not firing #68",
-    "body": "Webhook notifications for ticket_updated events have stopped delivering to our endpoint since morning. (Ref: ticket-68)",
-    "created_at": "2026-11-21T19:07:00Z",
+    "subject": "Help",
+    "body": "Help me",
+    "created_at": "2026-11-12T19:49:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 67
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0069",
-    "subject": "Mobile app crashing on launch #69",
-    "body": "After updating to iOS version 4.2.1, the application immediately closes upon opening. (Ref: ticket-69)",
-    "created_at": "2026-11-21T20:08:00Z",
+    "subject": "Error",
+    "body": "Broken",
+    "created_at": "2026-11-13T20:56:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 68
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0070",
-    "subject": "Search filter returns empty results #70",
-    "body": "Filtering tickets by date range is failing to return records that exist in the database. (Ref: ticket-70)",
-    "created_at": "2026-11-21T21:09:00Z",
+    "subject": "Issue",
+    "body": "Doesn't work",
+    "created_at": "2026-11-14T21:03:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 69
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0071",
-    "subject": "Password reset link expired #71",
-    "body": "I requested a password reset email but the link says expired as soon as I click it. (Ref: ticket-71)",
-    "created_at": "2026-11-21T22:10:00Z",
+    "subject": "Question",
+    "body": "Why?",
+    "created_at": "2026-11-15T22:10:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 70
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0072",
-    "subject": "Lost 2FA authenticator device #72",
-    "body": "I got a new phone and no longer have access to my Google Authenticator 2FA tokens. (Ref: ticket-72)",
-    "created_at": "2026-11-21T23:11:00Z",
+    "subject": "Bug",
+    "body": "Fix app please",
+    "created_at": "2026-11-16T23:17:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 71
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0073",
-    "subject": "SSO Okta login loop #73",
-    "body": "Our team is stuck in a redirect loop when attempting Single Sign-On via Okta SAML. (Ref: ticket-73)",
-    "created_at": "2026-11-21T00:12:00Z",
+    "subject": "Login",
+    "body": "Can't sign in",
+    "created_at": "2026-11-17T00:24:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 72
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0074",
-    "subject": "Unlock team admin account #74",
-    "body": "My administrator account was locked out after too many incorrect password attempts. (Ref: ticket-74)",
-    "created_at": "2026-11-21T01:13:00Z",
+    "subject": "Urgent",
+    "body": "Call me",
+    "created_at": "2026-11-18T01:31:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 73
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0075",
-    "subject": "Email verification not arriving #75",
-    "body": "Created a new user account but the confirmation verification email has not arrived in inbox or spam. (Ref: ticket-75)",
-    "created_at": "2026-11-21T02:14:00Z",
+    "subject": "App",
+    "body": "Crashed",
+    "created_at": "2026-11-19T02:38:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 74
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0076",
-    "subject": "Urgent security breach inquiry #76",
-    "body": "We observed unauthorized API token usage originating from an unfamiliar IP address. Possible security breach. (Ref: ticket-76)",
-    "created_at": "2026-11-21T03:15:00Z",
+    "subject": "Invoice request for annual Enterprise renewal",
+    "body": "Could you please send over the finalized VAT-compliant invoice and tax receipt for our annual Enterprise plan renewal? Our finance department requires it before month-end.",
+    "created_at": "2026-11-20T03:45:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 75
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0077",
-    "subject": "GDPR data deletion request #77",
-    "body": "Under GDPR Article 17, I formally request deletion of all personal data associated with my account. (Ref: ticket-77)",
-    "created_at": "2026-11-21T04:16:00Z",
+    "subject": "Duplicate subscription charge on November 15",
+    "body": "I reviewed our banking statement and noticed we were billed $249 twice on November 15th. Please investigate and issue a refund for the duplicate transaction.",
+    "created_at": "2026-11-21T04:52:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 76
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0078",
-    "subject": "Vulnerability report on auth endpoint #78",
-    "body": "Our penetration testing team discovered an issue where session tokens are not properly invalidated on logout. (Ref: ticket-78)",
-    "created_at": "2026-11-21T05:17:00Z",
+    "subject": "Corporate credit card declined during upgrade",
+    "body": "We are attempting to upgrade our team from Pro to Enterprise, but our corporate Amex is being rejected with a card declined error code 2004.",
+    "created_at": "2026-11-22T05:59:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 77
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0079",
-    "subject": "Data loss detected in customer table #79",
-    "body": "Several rows in our customer table were deleted unintentionally. Potential data loss issue. (Ref: ticket-79)",
-    "created_at": "2026-11-21T06:18:00Z",
+    "subject": "Pro-rated refund request after team downsizing",
+    "body": "We reduced our active seat count from 45 to 25 seats earlier this week. Can you confirm if a pro-rated credit will be applied to our upcoming invoice?",
+    "created_at": "2026-11-23T06:06:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 78
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0080",
-    "subject": "Suspicious login notification #80",
-    "body": "Received an alert for a login from a different country that was not authorized by me. (Ref: ticket-80)",
-    "created_at": "2026-11-21T07:19:00Z",
+    "subject": "Update billing contact and accounts payable email",
+    "body": "Our primary accounts payable contact has changed. Please update our billing notifications to reach finance@acmecorp.com instead of our old domain.",
+    "created_at": "2026-11-24T07:13:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 79
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0081",
-    "subject": "Support for dark mode theme #81",
-    "body": "Would love to see native dark mode support in the desktop web application. (Ref: ticket-81)",
-    "created_at": "2026-11-21T08:20:00Z",
+    "subject": "Tax exemption certificate submission",
+    "body": "Our organization is a registered 501(c)(3) non-profit. I have attached our IRS tax exemption letter to remove sales tax from future invoices.",
+    "created_at": "2026-11-25T08:20:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 80
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0082",
-    "subject": "Bulk export to parquet format #82",
-    "body": "It would be tremendously helpful if we could export telemetry data directly in Parquet format. (Ref: ticket-82)",
-    "created_at": "2026-11-21T09:21:00Z",
+    "subject": "Unexpected overage charges on API usage",
+    "body": "Our November bill reflects $620 in overage charges for API calls. Could you provide an itemized breakdown of usage per API key?",
+    "created_at": "2026-11-26T09:27:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 81
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0083",
-    "subject": "Custom webhooks per workspace #83",
-    "body": "We request the ability to configure separate webhook endpoints for different project workspaces. (Ref: ticket-83)",
-    "created_at": "2026-11-21T10:22:00Z",
+    "subject": "Wire transfer payment confirmation needed",
+    "body": "We sent a wire transfer for invoice INV-88293 four business days ago. Could you please confirm receipt and clear the pending invoice banner?",
+    "created_at": "2026-11-27T10:34:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 82
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0084",
-    "subject": "Slack notification integration #84",
-    "body": "Is there a roadmap item for direct notifications into designated Slack channels? (Ref: ticket-84)",
-    "created_at": "2026-11-21T11:23:00Z",
+    "subject": "Receipt missing company registration number",
+    "body": "The invoice generated for our recent purchase lacks our registered European VAT ID: DE309281923. Please regenerate the invoice with these details.",
+    "created_at": "2026-11-28T11:41:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 83
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0085",
-    "subject": "SAML SSO for Starter plan #85",
-    "body": "Please consider making SAML SSO available on lower tier plans for small security-conscious startups. (Ref: ticket-85)",
-    "created_at": "2026-11-21T12:24:00Z",
+    "subject": "Clarification on seat pricing tiers for 2027",
+    "body": "We are planning our next fiscal year budget and would like clarification on volume discounts for adding 100+ additional seats.",
+    "created_at": "2026-11-01T12:48:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 84
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0086",
-    "subject": "Documentation for API v2 #86",
-    "body": "Where can I find complete reference documentation and code samples for the v2 REST API? (Ref: ticket-86)",
-    "created_at": "2026-11-21T13:25:00Z",
+    "subject": "API returning intermittent 502 Bad Gateway under load",
+    "body": "Between 14:00 and 15:30 UTC, our integration services received repeated 502 Bad Gateway responses when querying the /v1/records/batch endpoint.",
+    "created_at": "2026-11-02T13:55:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 85
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0087",
-    "subject": "Supported browser list #87",
-    "body": "Which versions of Chromium and Firefox are officially supported by your web client? (Ref: ticket-87)",
-    "created_at": "2026-11-21T14:26:00Z",
+    "subject": "Browser tab freezes when exporting large CSV analytics",
+    "body": "When attempting to export more than 10,000 analytics records to CSV, the Chrome tab memory consumption spikes to 3GB and crashes.",
+    "created_at": "2026-11-03T14:02:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 86
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0088",
-    "subject": "Enterprise SLA terms inquiry #88",
-    "body": "Could you provide details on the guaranteed uptime SLA for the Enterprise tier? (Ref: ticket-88)",
-    "created_at": "2026-11-21T15:27:00Z",
+    "subject": "Webhook delivery stopped firing on ticket_status_updated",
+    "body": "Since 09:00 EST today, webhook events for ticket_status_updated have stopped dispatching to our listener URL: https://api.client.io/webhooks.",
+    "created_at": "2026-11-04T15:09:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 87
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0089",
-    "subject": "Office hours for technical support #89",
-    "body": "What are your standard support operating hours for customers in the European region? (Ref: ticket-89)",
-    "created_at": "2026-11-21T16:28:00Z",
+    "subject": "iOS app crashes immediately on launch after version 4.2",
+    "body": "Several members of our field engineering team report that the mobile app crashes on the splash screen after upgrading to iOS 18.2.",
+    "created_at": "2026-11-05T16:16:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 88
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0090",
-    "subject": "Partner program application #90",
-    "body": "We are interested in becoming a certified integration partner. How do we apply? (Ref: ticket-90)",
-    "created_at": "2026-11-21T17:29:00Z",
+    "subject": "Search filters return zero results when filtering by date range",
+    "body": "Searching for tickets resolved between November 1 and November 15 returns an empty table, despite matching records existing in the database.",
+    "created_at": "2026-11-06T17:23:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 89
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0091",
-    "subject": "Invoice request for renewal #91",
-    "body": "Please provide the official invoice and VAT receipt for our annual enterprise subscription renewal. (Ref: ticket-91)",
-    "created_at": "2026-11-21T18:30:00Z",
+    "subject": "CORS header missing on preflight OPTIONS requests",
+    "body": "Our frontend application is blocked from accessing the staging API endpoint due to a missing Access-Control-Allow-Origin header on OPTIONS preflight.",
+    "created_at": "2026-11-07T18:30:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 90
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0092",
-    "subject": "Charged twice for subscription #92",
-    "body": "I checked my bank statement and noticed a double charge on November 15th. Please refund the duplicate. (Ref: ticket-92)",
-    "created_at": "2026-11-21T19:31:00Z",
+    "subject": "Data discrepancy between dashboard charts and raw exports",
+    "body": "The dashboard overview displays 1,420 completed actions for yesterday, but the raw CSV export only contains 1,298 matching rows.",
+    "created_at": "2026-11-08T19:37:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 91
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0093",
-    "subject": "Upgrade payment failed #93",
-    "body": "When entering my corporate credit card to upgrade to Pro tier, the checkout keeps rejecting with card decline. (Ref: ticket-93)",
-    "created_at": "2026-11-21T20:32:00Z",
+    "subject": "GraphQL mutation times out when attaching multiple files",
+    "body": "Executing the attachMedia mutation with more than 3 files consistently times out after 30 seconds with an execution timeout error.",
+    "created_at": "2026-11-09T20:44:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 92
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0094",
-    "subject": "Refund request for unused seats #94",
-    "body": "We downsized our team by 5 seats last month and would like a pro-rated refund or credit. (Ref: ticket-94)",
-    "created_at": "2026-11-21T21:33:00Z",
+    "subject": "SSO redirect loops back to login page on Firefox",
+    "body": "Users authenticating via SAML SSO on Firefox 132 are caught in an infinite redirect loop between the IdP and the workspace dashboard.",
+    "created_at": "2026-11-10T21:51:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 93
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0095",
-    "subject": "Update credit card details #95",
-    "body": "Our card expired and we need to update billing information before the next billing cycle. (Ref: ticket-95)",
-    "created_at": "2026-11-21T22:34:00Z",
+    "subject": "Pagination next button disabled prematurely on page 3",
+    "body": "In the user management table, the next page chevron is greyed out on page 3 even though the counter shows 450 total users with 25 per page.",
+    "created_at": "2026-11-11T22:58:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 94
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0096",
-    "subject": "API returns 500 internal server error #96",
-    "body": "Sending a POST request to /v1/records results in intermittent 500 error responses during peak times. (Ref: ticket-96)",
-    "created_at": "2026-11-21T23:35:00Z",
+    "subject": "Password reset email not arriving in mailbox or spam",
+    "body": "I submitted a password reset request 45 minutes ago for user alex@enterprise.com, but no email has arrived. Mail filters show no blocked messages.",
+    "created_at": "2026-11-12T23:05:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 95
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0097",
-    "subject": "Dashboard UI freezes on export #97",
-    "body": "When clicking Export CSV on the analytics page, the browser tab freezes completely and crashes. (Ref: ticket-97)",
-    "created_at": "2026-11-21T00:36:00Z",
+    "subject": "Lost multi-factor authenticator device after phone upgrade",
+    "body": "I recently switched to a new phone and lost access to my Google Authenticator app. Please assist with resetting my account MFA.",
+    "created_at": "2026-11-13T00:12:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 96
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0098",
-    "subject": "Webhook events not firing #98",
-    "body": "Webhook notifications for ticket_updated events have stopped delivering to our endpoint since morning. (Ref: ticket-98)",
-    "created_at": "2026-11-21T01:37:00Z",
+    "subject": "Admin locked out due to maximum failed login attempts",
+    "body": "Our workspace administrator entered an incorrect password multiple times and the account is now locked. We need access restored urgently.",
+    "created_at": "2026-11-14T01:19:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 97
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0099",
-    "subject": "Mobile app crashing on launch #99",
-    "body": "After updating to iOS version 4.2.1, the application immediately closes upon opening. (Ref: ticket-99)",
-    "created_at": "2026-11-21T02:38:00Z",
+    "subject": "Okta SAML assertion signature validation failed",
+    "body": "When users attempt to sign in via Okta, our system displays error: Invalid SAML Response signature. Certificates match our configuration.",
+    "created_at": "2026-11-15T02:26:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 98
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0100",
-    "subject": "Search filter returns empty results #100",
-    "body": "Filtering tickets by date range is failing to return records that exist in the database. (Ref: ticket-100)",
-    "created_at": "2026-11-21T03:39:00Z",
+    "subject": "Transfer workspace ownership to new team lead",
+    "body": "Our previous workspace owner has departed the company. We need to transfer primary ownership privileges to sarah.connor@acme.com.",
+    "created_at": "2026-11-16T03:33:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 99
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0101",
-    "subject": "Password reset link expired #101",
-    "body": "I requested a password reset email but the link says expired as soon as I click it. (Ref: ticket-101)",
-    "created_at": "2026-11-21T04:40:00Z",
+    "subject": "User invitation links failing with token expired message",
+    "body": "New employee invitation links generated today show token expired immediately upon being opened by the recipient.",
+    "created_at": "2026-11-17T04:40:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 100
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0102",
-    "subject": "Lost 2FA authenticator device #102",
-    "body": "I got a new phone and no longer have access to my Google Authenticator 2FA tokens. (Ref: ticket-102)",
-    "created_at": "2026-11-21T05:41:00Z",
+    "subject": "Remove departed contractor from all project permissions",
+    "body": "A contract developer ended their engagement today. Please immediately revoke their access tokens and session cookies across all workspaces.",
+    "created_at": "2026-11-18T05:47:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 101
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0103",
-    "subject": "SSO Okta login loop #103",
-    "body": "Our team is stuck in a redirect loop when attempting Single Sign-On via Okta SAML. (Ref: ticket-103)",
-    "created_at": "2026-11-21T06:42:00Z",
+    "subject": "Cannot generate new personal access token",
+    "body": "In developer settings, clicking Generate New Token yields an error: Token generation quota exceeded for current user role.",
+    "created_at": "2026-11-19T06:54:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 102
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0104",
-    "subject": "Unlock team admin account #104",
-    "body": "My administrator account was locked out after too many incorrect password attempts. (Ref: ticket-104)",
-    "created_at": "2026-11-21T07:43:00Z",
+    "subject": "Google OAuth login fails with invalid_client parameter",
+    "body": "Clicking Sign in with Google returns a 400 invalid_client error from accounts.google.com for all users on our custom domain.",
+    "created_at": "2026-11-20T07:01:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 103
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0105",
-    "subject": "Email verification not arriving #105",
-    "body": "Created a new user account but the confirmation verification email has not arrived in inbox or spam. (Ref: ticket-105)",
-    "created_at": "2026-11-21T08:44:00Z",
+    "subject": "Account verification link missing from confirmation email",
+    "body": "The verification email arrived, but the confirmation button contains an empty href attribute.",
+    "created_at": "2026-11-21T08:08:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 104
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0106",
-    "subject": "Urgent security breach inquiry #106",
-    "body": "We observed unauthorized API token usage originating from an unfamiliar IP address. Possible security breach. (Ref: ticket-106)",
-    "created_at": "2026-11-21T09:45:00Z",
+    "subject": "Suspected unauthorized login attempt from foreign IP",
+    "body": "Our SIEM system flagged an administrative login originating from an unfamiliar IP in Belarus at 03:14 UTC. Please terminate all active sessions.",
+    "created_at": "2026-11-22T09:15:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 105
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0107",
-    "subject": "GDPR data deletion request #107",
-    "body": "Under GDPR Article 17, I formally request deletion of all personal data associated with my account. (Ref: ticket-107)",
-    "created_at": "2026-11-21T10:46:00Z",
+    "subject": "GDPR Article 17 Right to Erasure request",
+    "body": "In accordance with GDPR Article 17, I formally request the permanent deletion of all personal identifiable data associated with user ID 88291.",
+    "created_at": "2026-11-23T10:22:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 106
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0108",
-    "subject": "Vulnerability report on auth endpoint #108",
-    "body": "Our penetration testing team discovered an issue where session tokens are not properly invalidated on logout. (Ref: ticket-108)",
-    "created_at": "2026-11-21T11:47:00Z",
+    "subject": "Report of potential SQL injection vulnerability in search parameter",
+    "body": "Our security auditor identified that the search query parameter on /api/v1/search does not sanitize semicolon-delimited inputs properly.",
+    "created_at": "2026-11-24T11:29:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 107
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0109",
-    "subject": "Data loss detected in customer table #109",
-    "body": "Several rows in our customer table were deleted unintentionally. Potential data loss issue. (Ref: ticket-109)",
-    "created_at": "2026-11-21T12:48:00Z",
+    "subject": "Exposed API token detected in public GitHub repository",
+    "body": "A developer inadvertently pushed an API secret to an open repository. We revoked the key, but need an audit of requests made in the last 24h.",
+    "created_at": "2026-11-25T12:36:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 108
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0110",
-    "subject": "Suspicious login notification #110",
-    "body": "Received an alert for a login from a different country that was not authorized by me. (Ref: ticket-110)",
-    "created_at": "2026-11-21T13:49:00Z",
+    "subject": "Security questionnaire for SOC 2 Type II compliance",
+    "body": "Our procurement compliance team requires your latest SOC 2 Type II report and third-party penetration test summary before we can proceed.",
+    "created_at": "2026-11-26T13:43:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 109
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0111",
-    "subject": "Support for dark mode theme #111",
-    "body": "Would love to see native dark mode support in the desktop web application. (Ref: ticket-111)",
-    "created_at": "2026-11-21T14:50:00Z",
+    "subject": "Inquiry regarding data encryption standards at rest",
+    "body": "Could you provide technical documentation verifying that customer database volumes are encrypted using AES-256 keys managed via KMS?",
+    "created_at": "2026-11-27T14:50:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 110
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0112",
-    "subject": "Bulk export to parquet format #112",
-    "body": "It would be tremendously helpful if we could export telemetry data directly in Parquet format. (Ref: ticket-112)",
-    "created_at": "2026-11-21T15:51:00Z",
+    "subject": "Suspicious phishing emails impersonating support notifications",
+    "body": "Our employees received emails claiming to be from your billing team demanding immediate credit card verification. Suspected spear-phishing.",
+    "created_at": "2026-11-28T15:57:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 111
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0113",
-    "subject": "Custom webhooks per workspace #113",
-    "body": "We request the ability to configure separate webhook endpoints for different project workspaces. (Ref: ticket-113)",
-    "created_at": "2026-11-21T16:52:00Z",
+    "subject": "Audit logs request for administrative permission changes in Q3",
+    "body": "We require an immutable export of all role and permission modifications performed by workspace admins between July 1 and September 30.",
+    "created_at": "2026-11-01T16:04:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 112
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0114",
-    "subject": "Slack notification integration #114",
-    "body": "Is there a roadmap item for direct notifications into designated Slack channels? (Ref: ticket-114)",
-    "created_at": "2026-11-21T17:53:00Z",
+    "subject": "Data processing addendum (DPA) execution request",
+    "body": "Please provide a countersigned Data Processing Addendum including Standard Contractual Clauses for our EU-US data transfers.",
+    "created_at": "2026-11-02T17:11:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 113
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0115",
-    "subject": "SAML SSO for Starter plan #115",
-    "body": "Please consider making SAML SSO available on lower tier plans for small security-conscious startups. (Ref: ticket-115)",
-    "created_at": "2026-11-21T18:54:00Z",
+    "subject": "Subprocessor notification inquiry",
+    "body": "Has your organization onboarded any new third-party subprocessors for data storage or analytics within the past 90 days?",
+    "created_at": "2026-11-03T18:18:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 114
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0116",
-    "subject": "Documentation for API v2 #116",
-    "body": "Where can I find complete reference documentation and code samples for the v2 REST API? (Ref: ticket-116)",
-    "created_at": "2026-11-21T19:55:00Z",
+    "subject": "Request for native dark mode interface in web console",
+    "body": "Our support agents spend 8+ hours a day in the portal. A native dark mode theme would significantly reduce eye fatigue.",
+    "created_at": "2026-11-04T19:25:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 115
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0117",
-    "subject": "Supported browser list #117",
-    "body": "Which versions of Chromium and Firefox are officially supported by your web client? (Ref: ticket-117)",
-    "created_at": "2026-11-21T20:56:00Z",
+    "subject": "Ability to schedule automated recurring CSV reports via email",
+    "body": "It would save our operations team hours if we could schedule weekly ticket volume summaries to be emailed every Monday at 08:00 AM.",
+    "created_at": "2026-11-05T20:32:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 116
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0118",
-    "subject": "Enterprise SLA terms inquiry #118",
-    "body": "Could you provide details on the guaranteed uptime SLA for the Enterprise tier? (Ref: ticket-118)",
-    "created_at": "2026-11-21T21:57:00Z",
+    "subject": "Webhook payload signing using HMAC SHA-256 signatures",
+    "body": "We strongly request that outbound webhook deliveries include an X-Hub-Signature header so our server can verify authenticity.",
+    "created_at": "2026-11-06T21:39:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 117
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0119",
-    "subject": "Office hours for technical support #119",
-    "body": "What are your standard support operating hours for customers in the European region? (Ref: ticket-119)",
-    "created_at": "2026-11-21T22:58:00Z",
+    "subject": "Integration with Slack channels for real-time ticket alerts",
+    "body": "We would love direct bidirectional integration with Slack so urgent priority tickets post alerts into our #incident-response channel.",
+    "created_at": "2026-11-07T22:46:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 118
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0120",
-    "subject": "Partner program application #120",
-    "body": "We are interested in becoming a certified integration partner. How do we apply? (Ref: ticket-120)",
-    "created_at": "2026-11-21T23:59:00Z",
+    "subject": "Support for custom ticket status workflows and transitions",
+    "body": "We need the ability to define custom states such as Pending Vendor and Awaiting Customer Review in addition to Open and Closed.",
+    "created_at": "2026-11-08T23:53:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 119
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0121",
-    "subject": "Invoice request for renewal #121",
-    "body": "Please provide the official invoice and VAT receipt for our annual enterprise subscription renewal. (Ref: ticket-121)",
-    "created_at": "2026-11-21T00:00:00Z",
+    "subject": "Configurable auto-assignment rules based on customer language",
+    "body": "We receive tickets in English, Spanish, and German. Automatic assignment by detected language would streamline triage immensely.",
+    "created_at": "2026-11-09T00:00:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 120
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0122",
-    "subject": "Charged twice for subscription #122",
-    "body": "I checked my bank statement and noticed a double charge on November 15th. Please refund the duplicate. (Ref: ticket-122)",
-    "created_at": "2026-11-21T01:01:00Z",
+    "subject": "Bulk edit capabilities for updating tags and priorities",
+    "body": "Selecting 50 tickets at once and applying tags or changing priorities in one batch action would be a massive efficiency improvement.",
+    "created_at": "2026-11-10T01:07:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 121
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0123",
-    "subject": "Upgrade payment failed #123",
-    "body": "When entering my corporate credit card to upgrade to Pro tier, the checkout keeps rejecting with card decline. (Ref: ticket-123)",
-    "created_at": "2026-11-21T02:02:00Z",
+    "subject": "Export telemetry and event logs to AWS S3 or Datadog",
+    "body": "Please consider adding native log streaming so audit and operational events can stream directly to our enterprise Datadog instance.",
+    "created_at": "2026-11-11T02:14:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 122
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0124",
-    "subject": "Refund request for unused seats #124",
-    "body": "We downsized our team by 5 seats last month and would like a pro-rated refund or credit. (Ref: ticket-124)",
-    "created_at": "2026-11-21T03:03:00Z",
+    "subject": "Keyboard navigation shortcuts for triage queue workflow",
+    "body": "Adding keyboard shortcuts like j/k for navigating tickets and e to archive would make ticket processing much faster.",
+    "created_at": "2026-11-12T03:21:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 123
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0125",
-    "subject": "Update credit card details #125",
-    "body": "Our card expired and we need to update billing information before the next billing cycle. (Ref: ticket-125)",
-    "created_at": "2026-11-21T04:04:00Z",
+    "subject": "Public status page widget embeddable on customer portal",
+    "body": "We want to embed your real-time platform uptime widget into our internal help center footer.",
+    "created_at": "2026-11-13T04:28:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 124
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0126",
-    "subject": "API returns 500 internal server error #126",
-    "body": "Sending a POST request to /v1/records results in intermittent 500 error responses during peak times. (Ref: ticket-126)",
-    "created_at": "2026-11-21T05:05:00Z",
+    "subject": "API rate limits and concurrency thresholds documentation",
+    "body": "Could you point us to the complete documentation on rate limits, requests per minute, and burst concurrency for our tier?",
+    "created_at": "2026-11-14T05:35:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 125
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0127",
-    "subject": "Dashboard UI freezes on export #127",
-    "body": "When clicking Export CSV on the analytics page, the browser tab freezes completely and crashes. (Ref: ticket-127)",
-    "created_at": "2026-11-21T06:06:00Z",
+    "subject": "Supported TLS cipher suites for inbound webhooks",
+    "body": "Which specific cipher suites and minimum TLS versions are mandated by your incoming webhook ingestion endpoints?",
+    "created_at": "2026-11-15T06:42:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 126
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0128",
-    "subject": "Webhook events not firing #128",
-    "body": "Webhook notifications for ticket_updated events have stopped delivering to our endpoint since morning. (Ref: ticket-128)",
-    "created_at": "2026-11-21T07:07:00Z",
+    "subject": "Customer support service level agreement (SLA) terms",
+    "body": "Where can we review the guaranteed first-response and resolution SLA response times for Tier-1 Enterprise accounts?",
+    "created_at": "2026-11-16T07:49:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 127
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0129",
-    "subject": "Mobile app crashing on launch #129",
-    "body": "After updating to iOS version 4.2.1, the application immediately closes upon opening. (Ref: ticket-129)",
-    "created_at": "2026-11-21T08:08:00Z",
+    "subject": "Standard operating hours and weekend support coverage",
+    "body": "Does your technical support desk provide 24/7/365 coverage for P1 incidents, or is weekend coverage on-call only?",
+    "created_at": "2026-11-17T08:56:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 128
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0130",
-    "subject": "Search filter returns empty results #130",
-    "body": "Filtering tickets by date range is failing to return records that exist in the database. (Ref: ticket-130)",
-    "created_at": "2026-11-21T09:09:00Z",
+    "subject": "Browser compatibility and minimum version requirements",
+    "body": "Which versions of Chromium, Safari, and Firefox are officially tested and supported by the web dashboard?",
+    "created_at": "2026-11-18T09:03:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 129
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0131",
-    "subject": "Password reset link expired #131",
-    "body": "I requested a password reset email but the link says expired as soon as I click it. (Ref: ticket-131)",
-    "created_at": "2026-11-21T10:10:00Z",
+    "subject": "Best practices guide for migrating historical tickets",
+    "body": "We are migrating from Zendesk and have 50,000 historical records. Do you provide a migration script or import guide?",
+    "created_at": "2026-11-19T10:10:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 130
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0132",
-    "subject": "Lost 2FA authenticator device #132",
-    "body": "I got a new phone and no longer have access to my Google Authenticator 2FA tokens. (Ref: ticket-132)",
-    "created_at": "2026-11-21T11:11:00Z",
+    "subject": "Sandbox and staging environment provisioning",
+    "body": "Can we request a separate sandbox environment with mock data for our QA team to test integrations without affecting production?",
+    "created_at": "2026-11-20T11:17:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 131
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0133",
-    "subject": "SSO Okta login loop #133",
-    "body": "Our team is stuck in a redirect loop when attempting Single Sign-On via Okta SAML. (Ref: ticket-133)",
-    "created_at": "2026-11-21T12:12:00Z",
+    "subject": "Partner certification and consultant directory",
+    "body": "How do we apply to become a certified implementation partner, and is there an accredited training curriculum available?",
+    "created_at": "2026-11-21T12:24:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 132
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0134",
-    "subject": "Unlock team admin account #134",
-    "body": "My administrator account was locked out after too many incorrect password attempts. (Ref: ticket-134)",
-    "created_at": "2026-11-21T13:13:00Z",
+    "subject": "Scheduled maintenance windows and notification policies",
+    "body": "What is your standard notification lead time prior to scheduled database maintenance or infrastructure updates?",
+    "created_at": "2026-11-22T13:31:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 133
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0135",
-    "subject": "Email verification not arriving #135",
-    "body": "Created a new user account but the confirmation verification email has not arrived in inbox or spam. (Ref: ticket-135)",
-    "created_at": "2026-11-21T14:14:00Z",
+    "subject": "Data retention policy for closed ticket attachments",
+    "body": "How long are uploaded file attachments retained after a support ticket has been closed and archived?",
+    "created_at": "2026-11-23T14:38:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 134
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0136",
-    "subject": "Urgent security breach inquiry #136",
-    "body": "We observed unauthorized API token usage originating from an unfamiliar IP address. Possible security breach. (Ref: ticket-136)",
-    "created_at": "2026-11-21T15:15:00Z",
+    "subject": "CRITICAL: Full production outage across US-East cluster",
+    "body": "Our entire production database cluster is completely down. Customer requests are failing with 500 errors. Complete service outage!",
+    "created_at": "2026-11-24T15:45:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 135
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0137",
-    "subject": "GDPR data deletion request #137",
-    "body": "Under GDPR Article 17, I formally request deletion of all personal data associated with my account. (Ref: ticket-137)",
-    "created_at": "2026-11-21T16:16:00Z",
+    "subject": "EMERGENCY: Security breach detected in customer portal",
+    "body": "Our intrusion detection system confirmed unauthorized administrative access and potential data breach. Immediate incident response needed!",
+    "created_at": "2026-11-25T16:52:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 136
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0138",
-    "subject": "Vulnerability report on auth endpoint #138",
-    "body": "Our penetration testing team discovered an issue where session tokens are not properly invalidated on logout. (Ref: ticket-138)",
-    "created_at": "2026-11-21T17:17:00Z",
+    "subject": "URGENT: Entire team can't login to dashboard",
+    "body": "None of our 150 team members can authenticate into the portal. We are blocked from serving our customers right now!",
+    "created_at": "2026-11-26T17:59:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 137
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0139",
-    "subject": "Data loss detected in customer table #139",
-    "body": "Several rows in our customer table were deleted unintentionally. Potential data loss issue. (Ref: ticket-139)",
-    "created_at": "2026-11-21T18:18:00Z",
+    "subject": "HIGH PRIORITY: Catastrophic data loss in production table",
+    "body": "A migration script executed erroneously and deleted 40,000 active customer records. Urgent data loss emergency!",
+    "created_at": "2026-11-27T18:06:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 138
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0140",
-    "subject": "Suspicious login notification #140",
-    "body": "Received an alert for a login from a different country that was not authorized by me. (Ref: ticket-140)",
-    "created_at": "2026-11-21T19:19:00Z",
+    "subject": "LEGAL NOTICE: Immediate lawsuit preservation notice",
+    "body": "Official notice of preservation of records regarding ongoing litigation. All deletion procedures for account ACME must cease immediately.",
+    "created_at": "2026-11-28T19:13:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 139
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0141",
-    "subject": "Support for dark mode theme #141",
-    "body": "Would love to see native dark mode support in the desktop web application. (Ref: ticket-141)",
-    "created_at": "2026-11-21T20:20:00Z",
+    "subject": "FRAUD ALERT: Multiple chargeback disputes reported",
+    "body": "We detected widespread fraudulent credit card transactions across 80 accounts resulting in massive chargeback notifications.",
+    "created_at": "2026-11-01T20:20:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 140
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0142",
-    "subject": "Bulk export to parquet format #142",
-    "body": "It would be tremendously helpful if we could export telemetry data directly in Parquet format. (Ref: ticket-142)",
-    "created_at": "2026-11-21T21:21:00Z",
+    "subject": "SYSTEM DOWN: Payment gateway processing completely down",
+    "body": "All checkout and card processing services are down. Customers are unable to purchase subscriptions across the entire platform!",
+    "created_at": "2026-11-02T21:27:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 141
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0143",
-    "subject": "Custom webhooks per workspace #143",
-    "body": "We request the ability to configure separate webhook endpoints for different project workspaces. (Ref: ticket-143)",
-    "created_at": "2026-11-21T22:22:00Z",
+    "subject": "Help",
+    "body": "Help me",
+    "created_at": "2026-11-03T22:34:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 142
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0144",
-    "subject": "Slack notification integration #144",
-    "body": "Is there a roadmap item for direct notifications into designated Slack channels? (Ref: ticket-144)",
-    "created_at": "2026-11-21T23:23:00Z",
+    "subject": "Error",
+    "body": "Broken",
+    "created_at": "2026-11-04T23:41:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 143
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0145",
-    "subject": "SAML SSO for Starter plan #145",
-    "body": "Please consider making SAML SSO available on lower tier plans for small security-conscious startups. (Ref: ticket-145)",
-    "created_at": "2026-11-21T00:24:00Z",
+    "subject": "Issue",
+    "body": "Doesn't work",
+    "created_at": "2026-11-05T00:48:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 144
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0146",
-    "subject": "Documentation for API v2 #146",
-    "body": "Where can I find complete reference documentation and code samples for the v2 REST API? (Ref: ticket-146)",
-    "created_at": "2026-11-21T01:25:00Z",
+    "subject": "Question",
+    "body": "Why?",
+    "created_at": "2026-11-06T01:55:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 145
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0147",
-    "subject": "Supported browser list #147",
-    "body": "Which versions of Chromium and Firefox are officially supported by your web client? (Ref: ticket-147)",
-    "created_at": "2026-11-21T02:26:00Z",
+    "subject": "Bug",
+    "body": "Fix app please",
+    "created_at": "2026-11-07T02:02:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 146
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0148",
-    "subject": "Enterprise SLA terms inquiry #148",
-    "body": "Could you provide details on the guaranteed uptime SLA for the Enterprise tier? (Ref: ticket-148)",
-    "created_at": "2026-11-21T03:27:00Z",
+    "subject": "Login",
+    "body": "Can't sign in",
+    "created_at": "2026-11-08T03:09:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 147
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0149",
-    "subject": "Office hours for technical support #149",
-    "body": "What are your standard support operating hours for customers in the European region? (Ref: ticket-149)",
-    "created_at": "2026-11-21T04:28:00Z",
+    "subject": "Urgent",
+    "body": "Call me",
+    "created_at": "2026-11-09T04:16:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 148
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0150",
-    "subject": "Partner program application #150",
-    "body": "We are interested in becoming a certified integration partner. How do we apply? (Ref: ticket-150)",
-    "created_at": "2026-11-21T05:29:00Z",
+    "subject": "App",
+    "body": "Crashed",
+    "created_at": "2026-11-10T05:23:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 149
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0151",
-    "subject": "Invoice request for renewal #151",
-    "body": "Please provide the official invoice and VAT receipt for our annual enterprise subscription renewal. (Ref: ticket-151)",
-    "created_at": "2026-11-21T06:30:00Z",
+    "subject": "Invoice request for annual Enterprise renewal",
+    "body": "Could you please send over the finalized VAT-compliant invoice and tax receipt for our annual Enterprise plan renewal? Our finance department requires it before month-end.",
+    "created_at": "2026-11-11T06:30:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 150
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0152",
-    "subject": "Charged twice for subscription #152",
-    "body": "I checked my bank statement and noticed a double charge on November 15th. Please refund the duplicate. (Ref: ticket-152)",
-    "created_at": "2026-11-21T07:31:00Z",
+    "subject": "Duplicate subscription charge on November 15",
+    "body": "I reviewed our banking statement and noticed we were billed $249 twice on November 15th. Please investigate and issue a refund for the duplicate transaction.",
+    "created_at": "2026-11-12T07:37:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 151
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0153",
-    "subject": "Upgrade payment failed #153",
-    "body": "When entering my corporate credit card to upgrade to Pro tier, the checkout keeps rejecting with card decline. (Ref: ticket-153)",
-    "created_at": "2026-11-21T08:32:00Z",
+    "subject": "Corporate credit card declined during upgrade",
+    "body": "We are attempting to upgrade our team from Pro to Enterprise, but our corporate Amex is being rejected with a card declined error code 2004.",
+    "created_at": "2026-11-13T08:44:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 152
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0154",
-    "subject": "Refund request for unused seats #154",
-    "body": "We downsized our team by 5 seats last month and would like a pro-rated refund or credit. (Ref: ticket-154)",
-    "created_at": "2026-11-21T09:33:00Z",
+    "subject": "Pro-rated refund request after team downsizing",
+    "body": "We reduced our active seat count from 45 to 25 seats earlier this week. Can you confirm if a pro-rated credit will be applied to our upcoming invoice?",
+    "created_at": "2026-11-14T09:51:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 153
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0155",
-    "subject": "Update credit card details #155",
-    "body": "Our card expired and we need to update billing information before the next billing cycle. (Ref: ticket-155)",
-    "created_at": "2026-11-21T10:34:00Z",
+    "subject": "Update billing contact and accounts payable email",
+    "body": "Our primary accounts payable contact has changed. Please update our billing notifications to reach finance@acmecorp.com instead of our old domain.",
+    "created_at": "2026-11-15T10:58:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 154
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0156",
-    "subject": "API returns 500 internal server error #156",
-    "body": "Sending a POST request to /v1/records results in intermittent 500 error responses during peak times. (Ref: ticket-156)",
-    "created_at": "2026-11-21T11:35:00Z",
+    "subject": "Tax exemption certificate submission",
+    "body": "Our organization is a registered 501(c)(3) non-profit. I have attached our IRS tax exemption letter to remove sales tax from future invoices.",
+    "created_at": "2026-11-16T11:05:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 155
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0157",
-    "subject": "Dashboard UI freezes on export #157",
-    "body": "When clicking Export CSV on the analytics page, the browser tab freezes completely and crashes. (Ref: ticket-157)",
-    "created_at": "2026-11-21T12:36:00Z",
+    "subject": "Unexpected overage charges on API usage",
+    "body": "Our November bill reflects $620 in overage charges for API calls. Could you provide an itemized breakdown of usage per API key?",
+    "created_at": "2026-11-17T12:12:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 156
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0158",
-    "subject": "Webhook events not firing #158",
-    "body": "Webhook notifications for ticket_updated events have stopped delivering to our endpoint since morning. (Ref: ticket-158)",
-    "created_at": "2026-11-21T13:37:00Z",
+    "subject": "Wire transfer payment confirmation needed",
+    "body": "We sent a wire transfer for invoice INV-88293 four business days ago. Could you please confirm receipt and clear the pending invoice banner?",
+    "created_at": "2026-11-18T13:19:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 157
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0159",
-    "subject": "Mobile app crashing on launch #159",
-    "body": "After updating to iOS version 4.2.1, the application immediately closes upon opening. (Ref: ticket-159)",
-    "created_at": "2026-11-21T14:38:00Z",
+    "subject": "Receipt missing company registration number",
+    "body": "The invoice generated for our recent purchase lacks our registered European VAT ID: DE309281923. Please regenerate the invoice with these details.",
+    "created_at": "2026-11-19T14:26:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 158
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0160",
-    "subject": "Search filter returns empty results #160",
-    "body": "Filtering tickets by date range is failing to return records that exist in the database. (Ref: ticket-160)",
-    "created_at": "2026-11-21T15:39:00Z",
+    "subject": "Clarification on seat pricing tiers for 2027",
+    "body": "We are planning our next fiscal year budget and would like clarification on volume discounts for adding 100+ additional seats.",
+    "created_at": "2026-11-20T15:33:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 159
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0161",
-    "subject": "Password reset link expired #161",
-    "body": "I requested a password reset email but the link says expired as soon as I click it. (Ref: ticket-161)",
+    "subject": "API returning intermittent 502 Bad Gateway under load",
+    "body": "Between 14:00 and 15:30 UTC, our integration services received repeated 502 Bad Gateway responses when querying the /v1/records/batch endpoint.",
     "created_at": "2026-11-21T16:40:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 160
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0162",
-    "subject": "Lost 2FA authenticator device #162",
-    "body": "I got a new phone and no longer have access to my Google Authenticator 2FA tokens. (Ref: ticket-162)",
-    "created_at": "2026-11-21T17:41:00Z",
+    "subject": "Browser tab freezes when exporting large CSV analytics",
+    "body": "When attempting to export more than 10,000 analytics records to CSV, the Chrome tab memory consumption spikes to 3GB and crashes.",
+    "created_at": "2026-11-22T17:47:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 161
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0163",
-    "subject": "SSO Okta login loop #163",
-    "body": "Our team is stuck in a redirect loop when attempting Single Sign-On via Okta SAML. (Ref: ticket-163)",
-    "created_at": "2026-11-21T18:42:00Z",
+    "subject": "Webhook delivery stopped firing on ticket_status_updated",
+    "body": "Since 09:00 EST today, webhook events for ticket_status_updated have stopped dispatching to our listener URL: https://api.client.io/webhooks.",
+    "created_at": "2026-11-23T18:54:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 162
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0164",
-    "subject": "Unlock team admin account #164",
-    "body": "My administrator account was locked out after too many incorrect password attempts. (Ref: ticket-164)",
-    "created_at": "2026-11-21T19:43:00Z",
+    "subject": "iOS app crashes immediately on launch after version 4.2",
+    "body": "Several members of our field engineering team report that the mobile app crashes on the splash screen after upgrading to iOS 18.2.",
+    "created_at": "2026-11-24T19:01:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 163
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0165",
-    "subject": "Email verification not arriving #165",
-    "body": "Created a new user account but the confirmation verification email has not arrived in inbox or spam. (Ref: ticket-165)",
-    "created_at": "2026-11-21T20:44:00Z",
+    "subject": "Search filters return zero results when filtering by date range",
+    "body": "Searching for tickets resolved between November 1 and November 15 returns an empty table, despite matching records existing in the database.",
+    "created_at": "2026-11-25T20:08:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 164
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0166",
-    "subject": "Urgent security breach inquiry #166",
-    "body": "We observed unauthorized API token usage originating from an unfamiliar IP address. Possible security breach. (Ref: ticket-166)",
-    "created_at": "2026-11-21T21:45:00Z",
+    "subject": "CORS header missing on preflight OPTIONS requests",
+    "body": "Our frontend application is blocked from accessing the staging API endpoint due to a missing Access-Control-Allow-Origin header on OPTIONS preflight.",
+    "created_at": "2026-11-26T21:15:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 165
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0167",
-    "subject": "GDPR data deletion request #167",
-    "body": "Under GDPR Article 17, I formally request deletion of all personal data associated with my account. (Ref: ticket-167)",
-    "created_at": "2026-11-21T22:46:00Z",
+    "subject": "Data discrepancy between dashboard charts and raw exports",
+    "body": "The dashboard overview displays 1,420 completed actions for yesterday, but the raw CSV export only contains 1,298 matching rows.",
+    "created_at": "2026-11-27T22:22:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 166
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0168",
-    "subject": "Vulnerability report on auth endpoint #168",
-    "body": "Our penetration testing team discovered an issue where session tokens are not properly invalidated on logout. (Ref: ticket-168)",
-    "created_at": "2026-11-21T23:47:00Z",
+    "subject": "GraphQL mutation times out when attaching multiple files",
+    "body": "Executing the attachMedia mutation with more than 3 files consistently times out after 30 seconds with an execution timeout error.",
+    "created_at": "2026-11-28T23:29:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 167
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0169",
-    "subject": "Data loss detected in customer table #169",
-    "body": "Several rows in our customer table were deleted unintentionally. Potential data loss issue. (Ref: ticket-169)",
-    "created_at": "2026-11-21T00:48:00Z",
+    "subject": "SSO redirect loops back to login page on Firefox",
+    "body": "Users authenticating via SAML SSO on Firefox 132 are caught in an infinite redirect loop between the IdP and the workspace dashboard.",
+    "created_at": "2026-11-01T00:36:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 168
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0170",
-    "subject": "Suspicious login notification #170",
-    "body": "Received an alert for a login from a different country that was not authorized by me. (Ref: ticket-170)",
-    "created_at": "2026-11-21T01:49:00Z",
+    "subject": "Pagination next button disabled prematurely on page 3",
+    "body": "In the user management table, the next page chevron is greyed out on page 3 even though the counter shows 450 total users with 25 per page.",
+    "created_at": "2026-11-02T01:43:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 169
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0171",
-    "subject": "Support for dark mode theme #171",
-    "body": "Would love to see native dark mode support in the desktop web application. (Ref: ticket-171)",
-    "created_at": "2026-11-21T02:50:00Z",
+    "subject": "Password reset email not arriving in mailbox or spam",
+    "body": "I submitted a password reset request 45 minutes ago for user alex@enterprise.com, but no email has arrived. Mail filters show no blocked messages.",
+    "created_at": "2026-11-03T02:50:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 170
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0172",
-    "subject": "Bulk export to parquet format #172",
-    "body": "It would be tremendously helpful if we could export telemetry data directly in Parquet format. (Ref: ticket-172)",
-    "created_at": "2026-11-21T03:51:00Z",
+    "subject": "Lost multi-factor authenticator device after phone upgrade",
+    "body": "I recently switched to a new phone and lost access to my Google Authenticator app. Please assist with resetting my account MFA.",
+    "created_at": "2026-11-04T03:57:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 171
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0173",
-    "subject": "Custom webhooks per workspace #173",
-    "body": "We request the ability to configure separate webhook endpoints for different project workspaces. (Ref: ticket-173)",
-    "created_at": "2026-11-21T04:52:00Z",
+    "subject": "Admin locked out due to maximum failed login attempts",
+    "body": "Our workspace administrator entered an incorrect password multiple times and the account is now locked. We need access restored urgently.",
+    "created_at": "2026-11-05T04:04:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 172
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0174",
-    "subject": "Slack notification integration #174",
-    "body": "Is there a roadmap item for direct notifications into designated Slack channels? (Ref: ticket-174)",
-    "created_at": "2026-11-21T05:53:00Z",
+    "subject": "Okta SAML assertion signature validation failed",
+    "body": "When users attempt to sign in via Okta, our system displays error: Invalid SAML Response signature. Certificates match our configuration.",
+    "created_at": "2026-11-06T05:11:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 173
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0175",
-    "subject": "SAML SSO for Starter plan #175",
-    "body": "Please consider making SAML SSO available on lower tier plans for small security-conscious startups. (Ref: ticket-175)",
-    "created_at": "2026-11-21T06:54:00Z",
+    "subject": "Transfer workspace ownership to new team lead",
+    "body": "Our previous workspace owner has departed the company. We need to transfer primary ownership privileges to sarah.connor@acme.com.",
+    "created_at": "2026-11-07T06:18:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 174
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0176",
-    "subject": "Documentation for API v2 #176",
-    "body": "Where can I find complete reference documentation and code samples for the v2 REST API? (Ref: ticket-176)",
-    "created_at": "2026-11-21T07:55:00Z",
+    "subject": "User invitation links failing with token expired message",
+    "body": "New employee invitation links generated today show token expired immediately upon being opened by the recipient.",
+    "created_at": "2026-11-08T07:25:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 175
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0177",
-    "subject": "Supported browser list #177",
-    "body": "Which versions of Chromium and Firefox are officially supported by your web client? (Ref: ticket-177)",
-    "created_at": "2026-11-21T08:56:00Z",
+    "subject": "Remove departed contractor from all project permissions",
+    "body": "A contract developer ended their engagement today. Please immediately revoke their access tokens and session cookies across all workspaces.",
+    "created_at": "2026-11-09T08:32:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 176
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0178",
-    "subject": "Enterprise SLA terms inquiry #178",
-    "body": "Could you provide details on the guaranteed uptime SLA for the Enterprise tier? (Ref: ticket-178)",
-    "created_at": "2026-11-21T09:57:00Z",
+    "subject": "Cannot generate new personal access token",
+    "body": "In developer settings, clicking Generate New Token yields an error: Token generation quota exceeded for current user role.",
+    "created_at": "2026-11-10T09:39:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 177
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0179",
-    "subject": "Office hours for technical support #179",
-    "body": "What are your standard support operating hours for customers in the European region? (Ref: ticket-179)",
-    "created_at": "2026-11-21T10:58:00Z",
+    "subject": "Google OAuth login fails with invalid_client parameter",
+    "body": "Clicking Sign in with Google returns a 400 invalid_client error from accounts.google.com for all users on our custom domain.",
+    "created_at": "2026-11-11T10:46:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 178
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0180",
-    "subject": "Partner program application #180",
-    "body": "We are interested in becoming a certified integration partner. How do we apply? (Ref: ticket-180)",
-    "created_at": "2026-11-21T11:59:00Z",
+    "subject": "Account verification link missing from confirmation email",
+    "body": "The verification email arrived, but the confirmation button contains an empty href attribute.",
+    "created_at": "2026-11-12T11:53:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 179
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0181",
-    "subject": "Invoice request for renewal #181",
-    "body": "Please provide the official invoice and VAT receipt for our annual enterprise subscription renewal. (Ref: ticket-181)",
-    "created_at": "2026-11-21T12:00:00Z",
+    "subject": "Suspected unauthorized login attempt from foreign IP",
+    "body": "Our SIEM system flagged an administrative login originating from an unfamiliar IP in Belarus at 03:14 UTC. Please terminate all active sessions.",
+    "created_at": "2026-11-13T12:00:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 180
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0182",
-    "subject": "Charged twice for subscription #182",
-    "body": "I checked my bank statement and noticed a double charge on November 15th. Please refund the duplicate. (Ref: ticket-182)",
-    "created_at": "2026-11-21T13:01:00Z",
+    "subject": "GDPR Article 17 Right to Erasure request",
+    "body": "In accordance with GDPR Article 17, I formally request the permanent deletion of all personal identifiable data associated with user ID 88291.",
+    "created_at": "2026-11-14T13:07:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 181
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0183",
-    "subject": "Upgrade payment failed #183",
-    "body": "When entering my corporate credit card to upgrade to Pro tier, the checkout keeps rejecting with card decline. (Ref: ticket-183)",
-    "created_at": "2026-11-21T14:02:00Z",
+    "subject": "Report of potential SQL injection vulnerability in search parameter",
+    "body": "Our security auditor identified that the search query parameter on /api/v1/search does not sanitize semicolon-delimited inputs properly.",
+    "created_at": "2026-11-15T14:14:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 182
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0184",
-    "subject": "Refund request for unused seats #184",
-    "body": "We downsized our team by 5 seats last month and would like a pro-rated refund or credit. (Ref: ticket-184)",
-    "created_at": "2026-11-21T15:03:00Z",
+    "subject": "Exposed API token detected in public GitHub repository",
+    "body": "A developer inadvertently pushed an API secret to an open repository. We revoked the key, but need an audit of requests made in the last 24h.",
+    "created_at": "2026-11-16T15:21:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 183
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0185",
-    "subject": "Update credit card details #185",
-    "body": "Our card expired and we need to update billing information before the next billing cycle. (Ref: ticket-185)",
-    "created_at": "2026-11-21T16:04:00Z",
+    "subject": "Security questionnaire for SOC 2 Type II compliance",
+    "body": "Our procurement compliance team requires your latest SOC 2 Type II report and third-party penetration test summary before we can proceed.",
+    "created_at": "2026-11-17T16:28:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 184
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0186",
-    "subject": "API returns 500 internal server error #186",
-    "body": "Sending a POST request to /v1/records results in intermittent 500 error responses during peak times. (Ref: ticket-186)",
-    "created_at": "2026-11-21T17:05:00Z",
+    "subject": "Inquiry regarding data encryption standards at rest",
+    "body": "Could you provide technical documentation verifying that customer database volumes are encrypted using AES-256 keys managed via KMS?",
+    "created_at": "2026-11-18T17:35:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 185
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0187",
-    "subject": "Dashboard UI freezes on export #187",
-    "body": "When clicking Export CSV on the analytics page, the browser tab freezes completely and crashes. (Ref: ticket-187)",
-    "created_at": "2026-11-21T18:06:00Z",
+    "subject": "Suspicious phishing emails impersonating support notifications",
+    "body": "Our employees received emails claiming to be from your billing team demanding immediate credit card verification. Suspected spear-phishing.",
+    "created_at": "2026-11-19T18:42:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 186
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0188",
-    "subject": "Webhook events not firing #188",
-    "body": "Webhook notifications for ticket_updated events have stopped delivering to our endpoint since morning. (Ref: ticket-188)",
-    "created_at": "2026-11-21T19:07:00Z",
+    "subject": "Audit logs request for administrative permission changes in Q3",
+    "body": "We require an immutable export of all role and permission modifications performed by workspace admins between July 1 and September 30.",
+    "created_at": "2026-11-20T19:49:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 187
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0189",
-    "subject": "Mobile app crashing on launch #189",
-    "body": "After updating to iOS version 4.2.1, the application immediately closes upon opening. (Ref: ticket-189)",
-    "created_at": "2026-11-21T20:08:00Z",
+    "subject": "Data processing addendum (DPA) execution request",
+    "body": "Please provide a countersigned Data Processing Addendum including Standard Contractual Clauses for our EU-US data transfers.",
+    "created_at": "2026-11-21T20:56:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 188
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0190",
-    "subject": "Search filter returns empty results #190",
-    "body": "Filtering tickets by date range is failing to return records that exist in the database. (Ref: ticket-190)",
-    "created_at": "2026-11-21T21:09:00Z",
+    "subject": "Subprocessor notification inquiry",
+    "body": "Has your organization onboarded any new third-party subprocessors for data storage or analytics within the past 90 days?",
+    "created_at": "2026-11-22T21:03:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 189
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0191",
-    "subject": "Password reset link expired #191",
-    "body": "I requested a password reset email but the link says expired as soon as I click it. (Ref: ticket-191)",
-    "created_at": "2026-11-21T22:10:00Z",
+    "subject": "Request for native dark mode interface in web console",
+    "body": "Our support agents spend 8+ hours a day in the portal. A native dark mode theme would significantly reduce eye fatigue.",
+    "created_at": "2026-11-23T22:10:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 190
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0192",
-    "subject": "Lost 2FA authenticator device #192",
-    "body": "I got a new phone and no longer have access to my Google Authenticator 2FA tokens. (Ref: ticket-192)",
-    "created_at": "2026-11-21T23:11:00Z",
+    "subject": "Ability to schedule automated recurring CSV reports via email",
+    "body": "It would save our operations team hours if we could schedule weekly ticket volume summaries to be emailed every Monday at 08:00 AM.",
+    "created_at": "2026-11-24T23:17:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 191
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0193",
-    "subject": "SSO Okta login loop #193",
-    "body": "Our team is stuck in a redirect loop when attempting Single Sign-On via Okta SAML. (Ref: ticket-193)",
-    "created_at": "2026-11-21T00:12:00Z",
+    "subject": "Webhook payload signing using HMAC SHA-256 signatures",
+    "body": "We strongly request that outbound webhook deliveries include an X-Hub-Signature header so our server can verify authenticity.",
+    "created_at": "2026-11-25T00:24:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 192
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0194",
-    "subject": "Unlock team admin account #194",
-    "body": "My administrator account was locked out after too many incorrect password attempts. (Ref: ticket-194)",
-    "created_at": "2026-11-21T01:13:00Z",
+    "subject": "Integration with Slack channels for real-time ticket alerts",
+    "body": "We would love direct bidirectional integration with Slack so urgent priority tickets post alerts into our #incident-response channel.",
+    "created_at": "2026-11-26T01:31:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 193
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0195",
-    "subject": "Email verification not arriving #195",
-    "body": "Created a new user account but the confirmation verification email has not arrived in inbox or spam. (Ref: ticket-195)",
-    "created_at": "2026-11-21T02:14:00Z",
+    "subject": "Support for custom ticket status workflows and transitions",
+    "body": "We need the ability to define custom states such as Pending Vendor and Awaiting Customer Review in addition to Open and Closed.",
+    "created_at": "2026-11-27T02:38:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 194
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0196",
-    "subject": "Urgent security breach inquiry #196",
-    "body": "We observed unauthorized API token usage originating from an unfamiliar IP address. Possible security breach. (Ref: ticket-196)",
-    "created_at": "2026-11-21T03:15:00Z",
+    "subject": "Configurable auto-assignment rules based on customer language",
+    "body": "We receive tickets in English, Spanish, and German. Automatic assignment by detected language would streamline triage immensely.",
+    "created_at": "2026-11-28T03:45:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 195
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0197",
-    "subject": "GDPR data deletion request #197",
-    "body": "Under GDPR Article 17, I formally request deletion of all personal data associated with my account. (Ref: ticket-197)",
-    "created_at": "2026-11-21T04:16:00Z",
+    "subject": "Bulk edit capabilities for updating tags and priorities",
+    "body": "Selecting 50 tickets at once and applying tags or changing priorities in one batch action would be a massive efficiency improvement.",
+    "created_at": "2026-11-01T04:52:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 196
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0198",
-    "subject": "Vulnerability report on auth endpoint #198",
-    "body": "Our penetration testing team discovered an issue where session tokens are not properly invalidated on logout. (Ref: ticket-198)",
-    "created_at": "2026-11-21T05:17:00Z",
+    "subject": "Export telemetry and event logs to AWS S3 or Datadog",
+    "body": "Please consider adding native log streaming so audit and operational events can stream directly to our enterprise Datadog instance.",
+    "created_at": "2026-11-02T05:59:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 197
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0199",
-    "subject": "Data loss detected in customer table #199",
-    "body": "Several rows in our customer table were deleted unintentionally. Potential data loss issue. (Ref: ticket-199)",
-    "created_at": "2026-11-21T06:18:00Z",
+    "subject": "Keyboard navigation shortcuts for triage queue workflow",
+    "body": "Adding keyboard shortcuts like j/k for navigating tickets and e to archive would make ticket processing much faster.",
+    "created_at": "2026-11-03T06:06:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 198
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0200",
-    "subject": "Suspicious login notification #200",
-    "body": "Received an alert for a login from a different country that was not authorized by me. (Ref: ticket-200)",
-    "created_at": "2026-11-21T07:19:00Z",
+    "subject": "Public status page widget embeddable on customer portal",
+    "body": "We want to embed your real-time platform uptime widget into our internal help center footer.",
+    "created_at": "2026-11-04T07:13:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 199
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0201",
-    "subject": "Support for dark mode theme #201",
-    "body": "Would love to see native dark mode support in the desktop web application. (Ref: ticket-201)",
-    "created_at": "2026-11-21T08:20:00Z",
+    "subject": "API rate limits and concurrency thresholds documentation",
+    "body": "Could you point us to the complete documentation on rate limits, requests per minute, and burst concurrency for our tier?",
+    "created_at": "2026-11-05T08:20:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 200
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0202",
-    "subject": "Bulk export to parquet format #202",
-    "body": "It would be tremendously helpful if we could export telemetry data directly in Parquet format. (Ref: ticket-202)",
-    "created_at": "2026-11-21T09:21:00Z",
+    "subject": "Supported TLS cipher suites for inbound webhooks",
+    "body": "Which specific cipher suites and minimum TLS versions are mandated by your incoming webhook ingestion endpoints?",
+    "created_at": "2026-11-06T09:27:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 201
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0203",
-    "subject": "Custom webhooks per workspace #203",
-    "body": "We request the ability to configure separate webhook endpoints for different project workspaces. (Ref: ticket-203)",
-    "created_at": "2026-11-21T10:22:00Z",
+    "subject": "Customer support service level agreement (SLA) terms",
+    "body": "Where can we review the guaranteed first-response and resolution SLA response times for Tier-1 Enterprise accounts?",
+    "created_at": "2026-11-07T10:34:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 202
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0204",
-    "subject": "Slack notification integration #204",
-    "body": "Is there a roadmap item for direct notifications into designated Slack channels? (Ref: ticket-204)",
-    "created_at": "2026-11-21T11:23:00Z",
+    "subject": "Standard operating hours and weekend support coverage",
+    "body": "Does your technical support desk provide 24/7/365 coverage for P1 incidents, or is weekend coverage on-call only?",
+    "created_at": "2026-11-08T11:41:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 203
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0205",
-    "subject": "SAML SSO for Starter plan #205",
-    "body": "Please consider making SAML SSO available on lower tier plans for small security-conscious startups. (Ref: ticket-205)",
-    "created_at": "2026-11-21T12:24:00Z",
+    "subject": "Browser compatibility and minimum version requirements",
+    "body": "Which versions of Chromium, Safari, and Firefox are officially tested and supported by the web dashboard?",
+    "created_at": "2026-11-09T12:48:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 204
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0206",
-    "subject": "Documentation for API v2 #206",
-    "body": "Where can I find complete reference documentation and code samples for the v2 REST API? (Ref: ticket-206)",
-    "created_at": "2026-11-21T13:25:00Z",
+    "subject": "Best practices guide for migrating historical tickets",
+    "body": "We are migrating from Zendesk and have 50,000 historical records. Do you provide a migration script or import guide?",
+    "created_at": "2026-11-10T13:55:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 205
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0207",
-    "subject": "Supported browser list #207",
-    "body": "Which versions of Chromium and Firefox are officially supported by your web client? (Ref: ticket-207)",
-    "created_at": "2026-11-21T14:26:00Z",
+    "subject": "Sandbox and staging environment provisioning",
+    "body": "Can we request a separate sandbox environment with mock data for our QA team to test integrations without affecting production?",
+    "created_at": "2026-11-11T14:02:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 206
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0208",
-    "subject": "Enterprise SLA terms inquiry #208",
-    "body": "Could you provide details on the guaranteed uptime SLA for the Enterprise tier? (Ref: ticket-208)",
-    "created_at": "2026-11-21T15:27:00Z",
+    "subject": "Partner certification and consultant directory",
+    "body": "How do we apply to become a certified implementation partner, and is there an accredited training curriculum available?",
+    "created_at": "2026-11-12T15:09:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 207
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0209",
-    "subject": "Office hours for technical support #209",
-    "body": "What are your standard support operating hours for customers in the European region? (Ref: ticket-209)",
-    "created_at": "2026-11-21T16:28:00Z",
+    "subject": "Scheduled maintenance windows and notification policies",
+    "body": "What is your standard notification lead time prior to scheduled database maintenance or infrastructure updates?",
+    "created_at": "2026-11-13T16:16:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 208
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0210",
-    "subject": "Partner program application #210",
-    "body": "We are interested in becoming a certified integration partner. How do we apply? (Ref: ticket-210)",
-    "created_at": "2026-11-21T17:29:00Z",
+    "subject": "Data retention policy for closed ticket attachments",
+    "body": "How long are uploaded file attachments retained after a support ticket has been closed and archived?",
+    "created_at": "2026-11-14T17:23:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 209
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0211",
-    "subject": "Invoice request for renewal #211",
-    "body": "Please provide the official invoice and VAT receipt for our annual enterprise subscription renewal. (Ref: ticket-211)",
-    "created_at": "2026-11-21T18:30:00Z",
+    "subject": "CRITICAL: Full production outage across US-East cluster",
+    "body": "Our entire production database cluster is completely down. Customer requests are failing with 500 errors. Complete service outage!",
+    "created_at": "2026-11-15T18:30:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 210
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0212",
-    "subject": "Charged twice for subscription #212",
-    "body": "I checked my bank statement and noticed a double charge on November 15th. Please refund the duplicate. (Ref: ticket-212)",
-    "created_at": "2026-11-21T19:31:00Z",
+    "subject": "EMERGENCY: Security breach detected in customer portal",
+    "body": "Our intrusion detection system confirmed unauthorized administrative access and potential data breach. Immediate incident response needed!",
+    "created_at": "2026-11-16T19:37:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 211
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0213",
-    "subject": "Upgrade payment failed #213",
-    "body": "When entering my corporate credit card to upgrade to Pro tier, the checkout keeps rejecting with card decline. (Ref: ticket-213)",
-    "created_at": "2026-11-21T20:32:00Z",
+    "subject": "URGENT: Entire team can't login to dashboard",
+    "body": "None of our 150 team members can authenticate into the portal. We are blocked from serving our customers right now!",
+    "created_at": "2026-11-17T20:44:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 212
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0214",
-    "subject": "Refund request for unused seats #214",
-    "body": "We downsized our team by 5 seats last month and would like a pro-rated refund or credit. (Ref: ticket-214)",
-    "created_at": "2026-11-21T21:33:00Z",
+    "subject": "HIGH PRIORITY: Catastrophic data loss in production table",
+    "body": "A migration script executed erroneously and deleted 40,000 active customer records. Urgent data loss emergency!",
+    "created_at": "2026-11-18T21:51:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 213
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0215",
-    "subject": "Update credit card details #215",
-    "body": "Our card expired and we need to update billing information before the next billing cycle. (Ref: ticket-215)",
-    "created_at": "2026-11-21T22:34:00Z",
+    "subject": "LEGAL NOTICE: Immediate lawsuit preservation notice",
+    "body": "Official notice of preservation of records regarding ongoing litigation. All deletion procedures for account ACME must cease immediately.",
+    "created_at": "2026-11-19T22:58:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 214
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0216",
-    "subject": "API returns 500 internal server error #216",
-    "body": "Sending a POST request to /v1/records results in intermittent 500 error responses during peak times. (Ref: ticket-216)",
-    "created_at": "2026-11-21T23:35:00Z",
+    "subject": "FRAUD ALERT: Multiple chargeback disputes reported",
+    "body": "We detected widespread fraudulent credit card transactions across 80 accounts resulting in massive chargeback notifications.",
+    "created_at": "2026-11-20T23:05:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 215
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0217",
-    "subject": "Dashboard UI freezes on export #217",
-    "body": "When clicking Export CSV on the analytics page, the browser tab freezes completely and crashes. (Ref: ticket-217)",
-    "created_at": "2026-11-21T00:36:00Z",
+    "subject": "SYSTEM DOWN: Payment gateway processing completely down",
+    "body": "All checkout and card processing services are down. Customers are unable to purchase subscriptions across the entire platform!",
+    "created_at": "2026-11-21T00:12:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 216
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0218",
-    "subject": "Webhook events not firing #218",
-    "body": "Webhook notifications for ticket_updated events have stopped delivering to our endpoint since morning. (Ref: ticket-218)",
-    "created_at": "2026-11-21T01:37:00Z",
+    "subject": "Help",
+    "body": "Help me",
+    "created_at": "2026-11-22T01:19:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 217
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0219",
-    "subject": "Mobile app crashing on launch #219",
-    "body": "After updating to iOS version 4.2.1, the application immediately closes upon opening. (Ref: ticket-219)",
-    "created_at": "2026-11-21T02:38:00Z",
+    "subject": "Error",
+    "body": "Broken",
+    "created_at": "2026-11-23T02:26:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 218
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0220",
-    "subject": "Search filter returns empty results #220",
-    "body": "Filtering tickets by date range is failing to return records that exist in the database. (Ref: ticket-220)",
-    "created_at": "2026-11-21T03:39:00Z",
+    "subject": "Issue",
+    "body": "Doesn't work",
+    "created_at": "2026-11-24T03:33:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 219
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0221",
-    "subject": "Password reset link expired #221",
-    "body": "I requested a password reset email but the link says expired as soon as I click it. (Ref: ticket-221)",
-    "created_at": "2026-11-21T04:40:00Z",
+    "subject": "Question",
+    "body": "Why?",
+    "created_at": "2026-11-25T04:40:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 220
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0222",
-    "subject": "Lost 2FA authenticator device #222",
-    "body": "I got a new phone and no longer have access to my Google Authenticator 2FA tokens. (Ref: ticket-222)",
-    "created_at": "2026-11-21T05:41:00Z",
+    "subject": "Bug",
+    "body": "Fix app please",
+    "created_at": "2026-11-26T05:47:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 221
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0223",
-    "subject": "SSO Okta login loop #223",
-    "body": "Our team is stuck in a redirect loop when attempting Single Sign-On via Okta SAML. (Ref: ticket-223)",
-    "created_at": "2026-11-21T06:42:00Z",
+    "subject": "Login",
+    "body": "Can't sign in",
+    "created_at": "2026-11-27T06:54:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 222
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0224",
-    "subject": "Unlock team admin account #224",
-    "body": "My administrator account was locked out after too many incorrect password attempts. (Ref: ticket-224)",
-    "created_at": "2026-11-21T07:43:00Z",
+    "subject": "Urgent",
+    "body": "Call me",
+    "created_at": "2026-11-28T07:01:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 223
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0225",
-    "subject": "Email verification not arriving #225",
-    "body": "Created a new user account but the confirmation verification email has not arrived in inbox or spam. (Ref: ticket-225)",
-    "created_at": "2026-11-21T08:44:00Z",
+    "subject": "App",
+    "body": "Crashed",
+    "created_at": "2026-11-01T08:08:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 224
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0226",
-    "subject": "Urgent security breach inquiry #226",
-    "body": "We observed unauthorized API token usage originating from an unfamiliar IP address. Possible security breach. (Ref: ticket-226)",
-    "created_at": "2026-11-21T09:45:00Z",
+    "subject": "Invoice request for annual Enterprise renewal",
+    "body": "Could you please send over the finalized VAT-compliant invoice and tax receipt for our annual Enterprise plan renewal? Our finance department requires it before month-end.",
+    "created_at": "2026-11-02T09:15:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 225
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0227",
-    "subject": "GDPR data deletion request #227",
-    "body": "Under GDPR Article 17, I formally request deletion of all personal data associated with my account. (Ref: ticket-227)",
-    "created_at": "2026-11-21T10:46:00Z",
+    "subject": "Duplicate subscription charge on November 15",
+    "body": "I reviewed our banking statement and noticed we were billed $249 twice on November 15th. Please investigate and issue a refund for the duplicate transaction.",
+    "created_at": "2026-11-03T10:22:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 226
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0228",
-    "subject": "Vulnerability report on auth endpoint #228",
-    "body": "Our penetration testing team discovered an issue where session tokens are not properly invalidated on logout. (Ref: ticket-228)",
-    "created_at": "2026-11-21T11:47:00Z",
+    "subject": "Corporate credit card declined during upgrade",
+    "body": "We are attempting to upgrade our team from Pro to Enterprise, but our corporate Amex is being rejected with a card declined error code 2004.",
+    "created_at": "2026-11-04T11:29:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 227
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0229",
-    "subject": "Data loss detected in customer table #229",
-    "body": "Several rows in our customer table were deleted unintentionally. Potential data loss issue. (Ref: ticket-229)",
-    "created_at": "2026-11-21T12:48:00Z",
+    "subject": "Pro-rated refund request after team downsizing",
+    "body": "We reduced our active seat count from 45 to 25 seats earlier this week. Can you confirm if a pro-rated credit will be applied to our upcoming invoice?",
+    "created_at": "2026-11-05T12:36:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 228
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0230",
-    "subject": "Suspicious login notification #230",
-    "body": "Received an alert for a login from a different country that was not authorized by me. (Ref: ticket-230)",
-    "created_at": "2026-11-21T13:49:00Z",
+    "subject": "Update billing contact and accounts payable email",
+    "body": "Our primary accounts payable contact has changed. Please update our billing notifications to reach finance@acmecorp.com instead of our old domain.",
+    "created_at": "2026-11-06T13:43:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 229
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0231",
-    "subject": "Support for dark mode theme #231",
-    "body": "Would love to see native dark mode support in the desktop web application. (Ref: ticket-231)",
-    "created_at": "2026-11-21T14:50:00Z",
+    "subject": "Tax exemption certificate submission",
+    "body": "Our organization is a registered 501(c)(3) non-profit. I have attached our IRS tax exemption letter to remove sales tax from future invoices.",
+    "created_at": "2026-11-07T14:50:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 230
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0232",
-    "subject": "Bulk export to parquet format #232",
-    "body": "It would be tremendously helpful if we could export telemetry data directly in Parquet format. (Ref: ticket-232)",
-    "created_at": "2026-11-21T15:51:00Z",
+    "subject": "Unexpected overage charges on API usage",
+    "body": "Our November bill reflects $620 in overage charges for API calls. Could you provide an itemized breakdown of usage per API key?",
+    "created_at": "2026-11-08T15:57:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 231
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0233",
-    "subject": "Custom webhooks per workspace #233",
-    "body": "We request the ability to configure separate webhook endpoints for different project workspaces. (Ref: ticket-233)",
-    "created_at": "2026-11-21T16:52:00Z",
+    "subject": "Wire transfer payment confirmation needed",
+    "body": "We sent a wire transfer for invoice INV-88293 four business days ago. Could you please confirm receipt and clear the pending invoice banner?",
+    "created_at": "2026-11-09T16:04:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 232
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0234",
-    "subject": "Slack notification integration #234",
-    "body": "Is there a roadmap item for direct notifications into designated Slack channels? (Ref: ticket-234)",
-    "created_at": "2026-11-21T17:53:00Z",
+    "subject": "Receipt missing company registration number",
+    "body": "The invoice generated for our recent purchase lacks our registered European VAT ID: DE309281923. Please regenerate the invoice with these details.",
+    "created_at": "2026-11-10T17:11:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 233
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0235",
-    "subject": "SAML SSO for Starter plan #235",
-    "body": "Please consider making SAML SSO available on lower tier plans for small security-conscious startups. (Ref: ticket-235)",
-    "created_at": "2026-11-21T18:54:00Z",
+    "subject": "Clarification on seat pricing tiers for 2027",
+    "body": "We are planning our next fiscal year budget and would like clarification on volume discounts for adding 100+ additional seats.",
+    "created_at": "2026-11-11T18:18:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 234
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0236",
-    "subject": "Documentation for API v2 #236",
-    "body": "Where can I find complete reference documentation and code samples for the v2 REST API? (Ref: ticket-236)",
-    "created_at": "2026-11-21T19:55:00Z",
+    "subject": "API returning intermittent 502 Bad Gateway under load",
+    "body": "Between 14:00 and 15:30 UTC, our integration services received repeated 502 Bad Gateway responses when querying the /v1/records/batch endpoint.",
+    "created_at": "2026-11-12T19:25:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 235
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0237",
-    "subject": "Supported browser list #237",
-    "body": "Which versions of Chromium and Firefox are officially supported by your web client? (Ref: ticket-237)",
-    "created_at": "2026-11-21T20:56:00Z",
+    "subject": "Browser tab freezes when exporting large CSV analytics",
+    "body": "When attempting to export more than 10,000 analytics records to CSV, the Chrome tab memory consumption spikes to 3GB and crashes.",
+    "created_at": "2026-11-13T20:32:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 236
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0238",
-    "subject": "Enterprise SLA terms inquiry #238",
-    "body": "Could you provide details on the guaranteed uptime SLA for the Enterprise tier? (Ref: ticket-238)",
-    "created_at": "2026-11-21T21:57:00Z",
+    "subject": "Webhook delivery stopped firing on ticket_status_updated",
+    "body": "Since 09:00 EST today, webhook events for ticket_status_updated have stopped dispatching to our listener URL: https://api.client.io/webhooks.",
+    "created_at": "2026-11-14T21:39:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 237
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0239",
-    "subject": "Office hours for technical support #239",
-    "body": "What are your standard support operating hours for customers in the European region? (Ref: ticket-239)",
-    "created_at": "2026-11-21T22:58:00Z",
+    "subject": "iOS app crashes immediately on launch after version 4.2",
+    "body": "Several members of our field engineering team report that the mobile app crashes on the splash screen after upgrading to iOS 18.2.",
+    "created_at": "2026-11-15T22:46:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 238
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0240",
-    "subject": "Partner program application #240",
-    "body": "We are interested in becoming a certified integration partner. How do we apply? (Ref: ticket-240)",
-    "created_at": "2026-11-21T23:59:00Z",
+    "subject": "Search filters return zero results when filtering by date range",
+    "body": "Searching for tickets resolved between November 1 and November 15 returns an empty table, despite matching records existing in the database.",
+    "created_at": "2026-11-16T23:53:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 239
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0241",
-    "subject": "Invoice request for renewal #241",
-    "body": "Please provide the official invoice and VAT receipt for our annual enterprise subscription renewal. (Ref: ticket-241)",
-    "created_at": "2026-11-21T00:00:00Z",
+    "subject": "CORS header missing on preflight OPTIONS requests",
+    "body": "Our frontend application is blocked from accessing the staging API endpoint due to a missing Access-Control-Allow-Origin header on OPTIONS preflight.",
+    "created_at": "2026-11-17T00:00:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 240
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0242",
-    "subject": "Charged twice for subscription #242",
-    "body": "I checked my bank statement and noticed a double charge on November 15th. Please refund the duplicate. (Ref: ticket-242)",
-    "created_at": "2026-11-21T01:01:00Z",
+    "subject": "Data discrepancy between dashboard charts and raw exports",
+    "body": "The dashboard overview displays 1,420 completed actions for yesterday, but the raw CSV export only contains 1,298 matching rows.",
+    "created_at": "2026-11-18T01:07:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 241
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0243",
-    "subject": "Upgrade payment failed #243",
-    "body": "When entering my corporate credit card to upgrade to Pro tier, the checkout keeps rejecting with card decline. (Ref: ticket-243)",
-    "created_at": "2026-11-21T02:02:00Z",
+    "subject": "GraphQL mutation times out when attaching multiple files",
+    "body": "Executing the attachMedia mutation with more than 3 files consistently times out after 30 seconds with an execution timeout error.",
+    "created_at": "2026-11-19T02:14:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 242
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0244",
-    "subject": "Refund request for unused seats #244",
-    "body": "We downsized our team by 5 seats last month and would like a pro-rated refund or credit. (Ref: ticket-244)",
-    "created_at": "2026-11-21T03:03:00Z",
+    "subject": "SSO redirect loops back to login page on Firefox",
+    "body": "Users authenticating via SAML SSO on Firefox 132 are caught in an infinite redirect loop between the IdP and the workspace dashboard.",
+    "created_at": "2026-11-20T03:21:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 243
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0245",
-    "subject": "Update credit card details #245",
-    "body": "Our card expired and we need to update billing information before the next billing cycle. (Ref: ticket-245)",
-    "created_at": "2026-11-21T04:04:00Z",
+    "subject": "Pagination next button disabled prematurely on page 3",
+    "body": "In the user management table, the next page chevron is greyed out on page 3 even though the counter shows 450 total users with 25 per page.",
+    "created_at": "2026-11-21T04:28:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 244
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0246",
-    "subject": "API returns 500 internal server error #246",
-    "body": "Sending a POST request to /v1/records results in intermittent 500 error responses during peak times. (Ref: ticket-246)",
-    "created_at": "2026-11-21T05:05:00Z",
+    "subject": "Password reset email not arriving in mailbox or spam",
+    "body": "I submitted a password reset request 45 minutes ago for user alex@enterprise.com, but no email has arrived. Mail filters show no blocked messages.",
+    "created_at": "2026-11-22T05:35:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 245
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0247",
-    "subject": "Dashboard UI freezes on export #247",
-    "body": "When clicking Export CSV on the analytics page, the browser tab freezes completely and crashes. (Ref: ticket-247)",
-    "created_at": "2026-11-21T06:06:00Z",
+    "subject": "Lost multi-factor authenticator device after phone upgrade",
+    "body": "I recently switched to a new phone and lost access to my Google Authenticator app. Please assist with resetting my account MFA.",
+    "created_at": "2026-11-23T06:42:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 246
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0248",
-    "subject": "Webhook events not firing #248",
-    "body": "Webhook notifications for ticket_updated events have stopped delivering to our endpoint since morning. (Ref: ticket-248)",
-    "created_at": "2026-11-21T07:07:00Z",
+    "subject": "Admin locked out due to maximum failed login attempts",
+    "body": "Our workspace administrator entered an incorrect password multiple times and the account is now locked. We need access restored urgently.",
+    "created_at": "2026-11-24T07:49:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 247
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0249",
-    "subject": "Mobile app crashing on launch #249",
-    "body": "After updating to iOS version 4.2.1, the application immediately closes upon opening. (Ref: ticket-249)",
-    "created_at": "2026-11-21T08:08:00Z",
+    "subject": "Okta SAML assertion signature validation failed",
+    "body": "When users attempt to sign in via Okta, our system displays error: Invalid SAML Response signature. Certificates match our configuration.",
+    "created_at": "2026-11-25T08:56:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 248
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0250",
-    "subject": "Search filter returns empty results #250",
-    "body": "Filtering tickets by date range is failing to return records that exist in the database. (Ref: ticket-250)",
-    "created_at": "2026-11-21T09:09:00Z",
+    "subject": "Transfer workspace ownership to new team lead",
+    "body": "Our previous workspace owner has departed the company. We need to transfer primary ownership privileges to sarah.connor@acme.com.",
+    "created_at": "2026-11-26T09:03:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 249
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0251",
-    "subject": "Password reset link expired #251",
-    "body": "I requested a password reset email but the link says expired as soon as I click it. (Ref: ticket-251)",
-    "created_at": "2026-11-21T10:10:00Z",
+    "subject": "User invitation links failing with token expired message",
+    "body": "New employee invitation links generated today show token expired immediately upon being opened by the recipient.",
+    "created_at": "2026-11-27T10:10:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 250
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0252",
-    "subject": "Lost 2FA authenticator device #252",
-    "body": "I got a new phone and no longer have access to my Google Authenticator 2FA tokens. (Ref: ticket-252)",
-    "created_at": "2026-11-21T11:11:00Z",
+    "subject": "Remove departed contractor from all project permissions",
+    "body": "A contract developer ended their engagement today. Please immediately revoke their access tokens and session cookies across all workspaces.",
+    "created_at": "2026-11-28T11:17:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 251
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0253",
-    "subject": "SSO Okta login loop #253",
-    "body": "Our team is stuck in a redirect loop when attempting Single Sign-On via Okta SAML. (Ref: ticket-253)",
-    "created_at": "2026-11-21T12:12:00Z",
+    "subject": "Cannot generate new personal access token",
+    "body": "In developer settings, clicking Generate New Token yields an error: Token generation quota exceeded for current user role.",
+    "created_at": "2026-11-01T12:24:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 252
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0254",
-    "subject": "Unlock team admin account #254",
-    "body": "My administrator account was locked out after too many incorrect password attempts. (Ref: ticket-254)",
-    "created_at": "2026-11-21T13:13:00Z",
+    "subject": "Google OAuth login fails with invalid_client parameter",
+    "body": "Clicking Sign in with Google returns a 400 invalid_client error from accounts.google.com for all users on our custom domain.",
+    "created_at": "2026-11-02T13:31:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 253
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0255",
-    "subject": "Email verification not arriving #255",
-    "body": "Created a new user account but the confirmation verification email has not arrived in inbox or spam. (Ref: ticket-255)",
-    "created_at": "2026-11-21T14:14:00Z",
+    "subject": "Account verification link missing from confirmation email",
+    "body": "The verification email arrived, but the confirmation button contains an empty href attribute.",
+    "created_at": "2026-11-03T14:38:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 254
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0256",
-    "subject": "Urgent security breach inquiry #256",
-    "body": "We observed unauthorized API token usage originating from an unfamiliar IP address. Possible security breach. (Ref: ticket-256)",
-    "created_at": "2026-11-21T15:15:00Z",
+    "subject": "Suspected unauthorized login attempt from foreign IP",
+    "body": "Our SIEM system flagged an administrative login originating from an unfamiliar IP in Belarus at 03:14 UTC. Please terminate all active sessions.",
+    "created_at": "2026-11-04T15:45:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 255
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0257",
-    "subject": "GDPR data deletion request #257",
-    "body": "Under GDPR Article 17, I formally request deletion of all personal data associated with my account. (Ref: ticket-257)",
-    "created_at": "2026-11-21T16:16:00Z",
+    "subject": "GDPR Article 17 Right to Erasure request",
+    "body": "In accordance with GDPR Article 17, I formally request the permanent deletion of all personal identifiable data associated with user ID 88291.",
+    "created_at": "2026-11-05T16:52:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 256
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0258",
-    "subject": "Vulnerability report on auth endpoint #258",
-    "body": "Our penetration testing team discovered an issue where session tokens are not properly invalidated on logout. (Ref: ticket-258)",
-    "created_at": "2026-11-21T17:17:00Z",
+    "subject": "Report of potential SQL injection vulnerability in search parameter",
+    "body": "Our security auditor identified that the search query parameter on /api/v1/search does not sanitize semicolon-delimited inputs properly.",
+    "created_at": "2026-11-06T17:59:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 257
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0259",
-    "subject": "Data loss detected in customer table #259",
-    "body": "Several rows in our customer table were deleted unintentionally. Potential data loss issue. (Ref: ticket-259)",
-    "created_at": "2026-11-21T18:18:00Z",
+    "subject": "Exposed API token detected in public GitHub repository",
+    "body": "A developer inadvertently pushed an API secret to an open repository. We revoked the key, but need an audit of requests made in the last 24h.",
+    "created_at": "2026-11-07T18:06:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 258
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0260",
-    "subject": "Suspicious login notification #260",
-    "body": "Received an alert for a login from a different country that was not authorized by me. (Ref: ticket-260)",
-    "created_at": "2026-11-21T19:19:00Z",
+    "subject": "Security questionnaire for SOC 2 Type II compliance",
+    "body": "Our procurement compliance team requires your latest SOC 2 Type II report and third-party penetration test summary before we can proceed.",
+    "created_at": "2026-11-08T19:13:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 259
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0261",
-    "subject": "Support for dark mode theme #261",
-    "body": "Would love to see native dark mode support in the desktop web application. (Ref: ticket-261)",
-    "created_at": "2026-11-21T20:20:00Z",
+    "subject": "Inquiry regarding data encryption standards at rest",
+    "body": "Could you provide technical documentation verifying that customer database volumes are encrypted using AES-256 keys managed via KMS?",
+    "created_at": "2026-11-09T20:20:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 260
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0262",
-    "subject": "Bulk export to parquet format #262",
-    "body": "It would be tremendously helpful if we could export telemetry data directly in Parquet format. (Ref: ticket-262)",
-    "created_at": "2026-11-21T21:21:00Z",
+    "subject": "Suspicious phishing emails impersonating support notifications",
+    "body": "Our employees received emails claiming to be from your billing team demanding immediate credit card verification. Suspected spear-phishing.",
+    "created_at": "2026-11-10T21:27:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 261
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0263",
-    "subject": "Custom webhooks per workspace #263",
-    "body": "We request the ability to configure separate webhook endpoints for different project workspaces. (Ref: ticket-263)",
-    "created_at": "2026-11-21T22:22:00Z",
+    "subject": "Audit logs request for administrative permission changes in Q3",
+    "body": "We require an immutable export of all role and permission modifications performed by workspace admins between July 1 and September 30.",
+    "created_at": "2026-11-11T22:34:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 262
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0264",
-    "subject": "Slack notification integration #264",
-    "body": "Is there a roadmap item for direct notifications into designated Slack channels? (Ref: ticket-264)",
-    "created_at": "2026-11-21T23:23:00Z",
+    "subject": "Data processing addendum (DPA) execution request",
+    "body": "Please provide a countersigned Data Processing Addendum including Standard Contractual Clauses for our EU-US data transfers.",
+    "created_at": "2026-11-12T23:41:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 263
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0265",
-    "subject": "SAML SSO for Starter plan #265",
-    "body": "Please consider making SAML SSO available on lower tier plans for small security-conscious startups. (Ref: ticket-265)",
-    "created_at": "2026-11-21T00:24:00Z",
+    "subject": "Subprocessor notification inquiry",
+    "body": "Has your organization onboarded any new third-party subprocessors for data storage or analytics within the past 90 days?",
+    "created_at": "2026-11-13T00:48:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 264
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0266",
-    "subject": "Documentation for API v2 #266",
-    "body": "Where can I find complete reference documentation and code samples for the v2 REST API? (Ref: ticket-266)",
-    "created_at": "2026-11-21T01:25:00Z",
+    "subject": "Request for native dark mode interface in web console",
+    "body": "Our support agents spend 8+ hours a day in the portal. A native dark mode theme would significantly reduce eye fatigue.",
+    "created_at": "2026-11-14T01:55:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 265
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0267",
-    "subject": "Supported browser list #267",
-    "body": "Which versions of Chromium and Firefox are officially supported by your web client? (Ref: ticket-267)",
-    "created_at": "2026-11-21T02:26:00Z",
+    "subject": "Ability to schedule automated recurring CSV reports via email",
+    "body": "It would save our operations team hours if we could schedule weekly ticket volume summaries to be emailed every Monday at 08:00 AM.",
+    "created_at": "2026-11-15T02:02:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 266
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0268",
-    "subject": "Enterprise SLA terms inquiry #268",
-    "body": "Could you provide details on the guaranteed uptime SLA for the Enterprise tier? (Ref: ticket-268)",
-    "created_at": "2026-11-21T03:27:00Z",
+    "subject": "Webhook payload signing using HMAC SHA-256 signatures",
+    "body": "We strongly request that outbound webhook deliveries include an X-Hub-Signature header so our server can verify authenticity.",
+    "created_at": "2026-11-16T03:09:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 267
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0269",
-    "subject": "Office hours for technical support #269",
-    "body": "What are your standard support operating hours for customers in the European region? (Ref: ticket-269)",
-    "created_at": "2026-11-21T04:28:00Z",
+    "subject": "Integration with Slack channels for real-time ticket alerts",
+    "body": "We would love direct bidirectional integration with Slack so urgent priority tickets post alerts into our #incident-response channel.",
+    "created_at": "2026-11-17T04:16:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 268
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0270",
-    "subject": "Partner program application #270",
-    "body": "We are interested in becoming a certified integration partner. How do we apply? (Ref: ticket-270)",
-    "created_at": "2026-11-21T05:29:00Z",
+    "subject": "Support for custom ticket status workflows and transitions",
+    "body": "We need the ability to define custom states such as Pending Vendor and Awaiting Customer Review in addition to Open and Closed.",
+    "created_at": "2026-11-18T05:23:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 269
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0271",
-    "subject": "Invoice request for renewal #271",
-    "body": "Please provide the official invoice and VAT receipt for our annual enterprise subscription renewal. (Ref: ticket-271)",
-    "created_at": "2026-11-21T06:30:00Z",
+    "subject": "Configurable auto-assignment rules based on customer language",
+    "body": "We receive tickets in English, Spanish, and German. Automatic assignment by detected language would streamline triage immensely.",
+    "created_at": "2026-11-19T06:30:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 270
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0272",
-    "subject": "Charged twice for subscription #272",
-    "body": "I checked my bank statement and noticed a double charge on November 15th. Please refund the duplicate. (Ref: ticket-272)",
-    "created_at": "2026-11-21T07:31:00Z",
+    "subject": "Bulk edit capabilities for updating tags and priorities",
+    "body": "Selecting 50 tickets at once and applying tags or changing priorities in one batch action would be a massive efficiency improvement.",
+    "created_at": "2026-11-20T07:37:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 271
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0273",
-    "subject": "Upgrade payment failed #273",
-    "body": "When entering my corporate credit card to upgrade to Pro tier, the checkout keeps rejecting with card decline. (Ref: ticket-273)",
-    "created_at": "2026-11-21T08:32:00Z",
+    "subject": "Export telemetry and event logs to AWS S3 or Datadog",
+    "body": "Please consider adding native log streaming so audit and operational events can stream directly to our enterprise Datadog instance.",
+    "created_at": "2026-11-21T08:44:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 272
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0274",
-    "subject": "Refund request for unused seats #274",
-    "body": "We downsized our team by 5 seats last month and would like a pro-rated refund or credit. (Ref: ticket-274)",
-    "created_at": "2026-11-21T09:33:00Z",
+    "subject": "Keyboard navigation shortcuts for triage queue workflow",
+    "body": "Adding keyboard shortcuts like j/k for navigating tickets and e to archive would make ticket processing much faster.",
+    "created_at": "2026-11-22T09:51:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "index": 273
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0275",
-    "subject": "Update credit card details #275",
-    "body": "Our card expired and we need to update billing information before the next billing cycle. (Ref: ticket-275)",
-    "created_at": "2026-11-21T10:34:00Z",
+    "subject": "Public status page widget embeddable on customer portal",
+    "body": "We want to embed your real-time platform uptime widget into our internal help center footer.",
+    "created_at": "2026-11-23T10:58:00Z",
     "metadata": {
-      "customer_tier": "standard",
-      "index": 274
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0276",
-    "subject": "Critical production outage",
-    "body": "Our entire production cluster is completely down and users cannot reach the service! Urgent help needed!",
-    "created_at": "2026-11-21T00:00:00Z",
+    "subject": "API rate limits and concurrency thresholds documentation",
+    "body": "Could you point us to the complete documentation on rate limits, requests per minute, and burst concurrency for our tier?",
+    "created_at": "2026-11-24T11:05:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0277",
-    "subject": "Database crashed and down",
-    "body": "Production database server went down unexpectedly 10 minutes ago. Outage impacting all operations.",
-    "created_at": "2026-11-21T01:01:00Z",
+    "subject": "Supported TLS cipher suites for inbound webhooks",
+    "body": "Which specific cipher suites and minimum TLS versions are mandated by your incoming webhook ingestion endpoints?",
+    "created_at": "2026-11-25T12:12:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0278",
-    "subject": "Can't login to any accounts",
-    "body": "I can't login to the portal and none of our team members can authenticate! Blocker!",
-    "created_at": "2026-11-21T02:02:00Z",
+    "subject": "Customer support service level agreement (SLA) terms",
+    "body": "Where can we review the guaranteed first-response and resolution SLA response times for Tier-1 Enterprise accounts?",
+    "created_at": "2026-11-26T13:19:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0279",
-    "subject": "Suspected breach and unauthorized access",
-    "body": "We detected unauthorized access to admin panel. Possible security breach occurring right now!",
-    "created_at": "2026-11-21T03:03:00Z",
+    "subject": "Standard operating hours and weekend support coverage",
+    "body": "Does your technical support desk provide 24/7/365 coverage for P1 incidents, or is weekend coverage on-call only?",
+    "created_at": "2026-11-27T14:26:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0280",
-    "subject": "Urgent fraud and chargeback alert",
-    "body": "Multiple fraud transactions reported by payment processor, immediate chargeback mitigation needed.",
-    "created_at": "2026-11-21T04:04:00Z",
+    "subject": "Browser compatibility and minimum version requirements",
+    "body": "Which versions of Chromium, Safari, and Firefox are officially tested and supported by the web dashboard?",
+    "created_at": "2026-11-28T15:33:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0281",
-    "subject": "Critical production outage",
-    "body": "Our entire production cluster is completely down and users cannot reach the service! Urgent help needed!",
-    "created_at": "2026-11-21T05:05:00Z",
+    "subject": "Best practices guide for migrating historical tickets",
+    "body": "We are migrating from Zendesk and have 50,000 historical records. Do you provide a migration script or import guide?",
+    "created_at": "2026-11-01T16:40:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0282",
-    "subject": "Database crashed and down",
-    "body": "Production database server went down unexpectedly 10 minutes ago. Outage impacting all operations.",
-    "created_at": "2026-11-21T06:06:00Z",
+    "subject": "Sandbox and staging environment provisioning",
+    "body": "Can we request a separate sandbox environment with mock data for our QA team to test integrations without affecting production?",
+    "created_at": "2026-11-02T17:47:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0283",
-    "subject": "Can't login to any accounts",
-    "body": "I can't login to the portal and none of our team members can authenticate! Blocker!",
-    "created_at": "2026-11-21T07:07:00Z",
+    "subject": "Partner certification and consultant directory",
+    "body": "How do we apply to become a certified implementation partner, and is there an accredited training curriculum available?",
+    "created_at": "2026-11-03T18:54:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0284",
-    "subject": "Suspected breach and unauthorized access",
-    "body": "We detected unauthorized access to admin panel. Possible security breach occurring right now!",
-    "created_at": "2026-11-21T08:08:00Z",
+    "subject": "Scheduled maintenance windows and notification policies",
+    "body": "What is your standard notification lead time prior to scheduled database maintenance or infrastructure updates?",
+    "created_at": "2026-11-04T19:01:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0285",
-    "subject": "Urgent fraud and chargeback alert",
-    "body": "Multiple fraud transactions reported by payment processor, immediate chargeback mitigation needed.",
-    "created_at": "2026-11-21T09:09:00Z",
+    "subject": "Data retention policy for closed ticket attachments",
+    "body": "How long are uploaded file attachments retained after a support ticket has been closed and archived?",
+    "created_at": "2026-11-05T20:08:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0286",
-    "subject": "Critical production outage",
-    "body": "Our entire production cluster is completely down and users cannot reach the service! Urgent help needed!",
-    "created_at": "2026-11-21T10:10:00Z",
+    "subject": "CRITICAL: Full production outage across US-East cluster",
+    "body": "Our entire production database cluster is completely down. Customer requests are failing with 500 errors. Complete service outage!",
+    "created_at": "2026-11-06T21:15:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0287",
-    "subject": "Database crashed and down",
-    "body": "Production database server went down unexpectedly 10 minutes ago. Outage impacting all operations.",
-    "created_at": "2026-11-21T11:11:00Z",
+    "subject": "EMERGENCY: Security breach detected in customer portal",
+    "body": "Our intrusion detection system confirmed unauthorized administrative access and potential data breach. Immediate incident response needed!",
+    "created_at": "2026-11-07T22:22:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "api",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0288",
-    "subject": "Can't login to any accounts",
-    "body": "I can't login to the portal and none of our team members can authenticate! Blocker!",
-    "created_at": "2026-11-21T12:12:00Z",
+    "subject": "URGENT: Entire team can't login to dashboard",
+    "body": "None of our 150 team members can authenticate into the portal. We are blocked from serving our customers right now!",
+    "created_at": "2026-11-08T23:29:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "mobile",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0289",
-    "subject": "Suspected breach and unauthorized access",
-    "body": "We detected unauthorized access to admin panel. Possible security breach occurring right now!",
-    "created_at": "2026-11-21T13:13:00Z",
+    "subject": "HIGH PRIORITY: Catastrophic data loss in production table",
+    "body": "A migration script executed erroneously and deleted 40,000 active customer records. Urgent data loss emergency!",
+    "created_at": "2026-11-09T00:36:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "email",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0290",
-    "subject": "Urgent fraud and chargeback alert",
-    "body": "Multiple fraud transactions reported by payment processor, immediate chargeback mitigation needed.",
-    "created_at": "2026-11-21T14:14:00Z",
+    "subject": "LEGAL NOTICE: Immediate lawsuit preservation notice",
+    "body": "Official notice of preservation of records regarding ongoing litigation. All deletion procedures for account ACME must cease immediately.",
+    "created_at": "2026-11-10T01:43:00Z",
     "metadata": {
-      "customer_tier": "enterprise",
-      "priority_hint": "urgent"
+      "source": "portal",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0291",
-    "subject": "Help",
-    "body": "Help me",
-    "created_at": "2026-11-21T12:00:00Z",
+    "subject": "FRAUD ALERT: Multiple chargeback disputes reported",
+    "body": "We detected widespread fraudulent credit card transactions across 80 accounts resulting in massive chargeback notifications.",
+    "created_at": "2026-11-11T02:50:00Z",
     "metadata": {
-      "short_context": true
+      "source": "api",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0292",
-    "subject": "Bug",
-    "body": "Broken app",
-    "created_at": "2026-11-21T12:00:00Z",
+    "subject": "SYSTEM DOWN: Payment gateway processing completely down",
+    "body": "All checkout and card processing services are down. Customers are unable to purchase subscriptions across the entire platform!",
+    "created_at": "2026-11-12T03:57:00Z",
     "metadata": {
-      "short_context": true
+      "source": "mobile",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0293",
-    "subject": "Hi",
-    "body": "Test",
-    "created_at": "2026-11-21T12:00:00Z",
+    "subject": "Help",
+    "body": "Help me",
+    "created_at": "2026-11-13T04:04:00Z",
     "metadata": {
-      "short_context": true
+      "source": "email",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0294",
-    "subject": "Question",
-    "body": "Why?",
-    "created_at": "2026-11-21T12:00:00Z",
+    "subject": "Error",
+    "body": "Broken",
+    "created_at": "2026-11-14T05:11:00Z",
     "metadata": {
-      "short_context": true
+      "source": "portal",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0295",
-    "subject": "Help",
-    "body": "Help me",
-    "created_at": "2026-11-21T12:00:00Z",
+    "subject": "Issue",
+    "body": "Doesn't work",
+    "created_at": "2026-11-15T06:18:00Z",
     "metadata": {
-      "short_context": true
+      "source": "api",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0296",
-    "subject": "Bug",
-    "body": "Broken app",
-    "created_at": "2026-11-21T12:00:00Z",
+    "subject": "Question",
+    "body": "Why?",
+    "created_at": "2026-11-16T07:25:00Z",
     "metadata": {
-      "short_context": true
+      "source": "mobile",
+      "customer_tier": "growth"
     }
   },
   {
     "id": "TCK-0297",
-    "subject": "Hi",
-    "body": "Test",
-    "created_at": "2026-11-21T12:00:00Z",
+    "subject": "Bug",
+    "body": "Fix app please",
+    "created_at": "2026-11-17T08:32:00Z",
     "metadata": {
-      "short_context": true
+      "source": "email",
+      "customer_tier": "enterprise"
     }
   },
   {
     "id": "TCK-0298",
-    "subject": "Question",
-    "body": "Why?",
-    "created_at": "2026-11-21T12:00:00Z",
+    "subject": "Login",
+    "body": "Can't sign in",
+    "created_at": "2026-11-18T09:39:00Z",
     "metadata": {
-      "short_context": true
+      "source": "portal",
+      "customer_tier": "standard"
     }
   },
   {
     "id": "TCK-0299",
-    "subject": "Missing body ticket"
+    "subject": "Urgent",
+    "body": "Call me",
+    "created_at": "2026-11-19T10:46:00Z",
+    "metadata": {
+      "source": "api",
+      "customer_tier": "growth"
+    }
   },
   {
     "id": "TCK-0300",
-    "subject": "Valid ticket 300",
-    "body": "This is a valid final ticket ensuring exact 300 count in dataset.",
-    "created_at": "2026-11-21T14:00:00Z"
+    "subject": "App",
+    "body": "Crashed",
+    "created_at": "2026-11-20T11:53:00Z",
+    "metadata": {
+      "source": "mobile",
+      "customer_tier": "enterprise"
+    }
   }
 ]

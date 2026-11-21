@@ -159,10 +159,12 @@ def render_report(result: PipelineResult) -> str:
         if "triage" in sample:
             t = sample["ticket"]
             tr = sample["triage"]
+            cat_str = tr.get('category').value if hasattr(tr.get('category'), 'value') else str(tr.get('category', ''))
+            prio_str = tr.get('priority').value if hasattr(tr.get('priority'), 'value') else str(tr.get('priority', ''))
             lines.extend([
                 f"### Sample {idx}: Triaged (`{_escape_markdown(t.get('id', 'N/A'))}`)",
                 f"- **Subject**: {_escape_markdown(t.get('subject', ''))}",
-                f"- **Category / Priority**: `{tr.get('category')}` / `{tr.get('priority')}` (Confidence: {tr.get('confidence')})",
+                f"- **Category / Priority**: `{cat_str}` / `{prio_str}` (Confidence: {tr.get('confidence')})",
                 f"- **Reasoning**: {_escape_markdown(tr.get('reasoning', ''))}",
                 "",
             ])

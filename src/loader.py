@@ -42,6 +42,9 @@ def _parse_row(row: Any, row_idx: int) -> Ticket | ReviewRecord:
     # Check known keys and collect rest in metadata
     known_keys = {"id", "subject", "body", "created_at"}
     extra_metadata = {k: v for k, v in row.items() if k not in known_keys}
+    if "metadata" in extra_metadata and isinstance(extra_metadata["metadata"], dict):
+        nested = extra_metadata.pop("metadata")
+        extra_metadata.update(nested)
 
     if body_val is None:
         return ReviewRecord(
