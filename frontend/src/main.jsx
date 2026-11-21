@@ -332,8 +332,6 @@ function App() {
         setRiskTerms(next)
         updateSettings({ risk_keywords: next })
         notify(`Added “${trimmed}” to urgent keywords`)
-      } else {
-        notify(`“${trimmed}” is already in the keyword list`)
       }
     }
   }
@@ -397,9 +395,7 @@ function App() {
         <aside className={`sidebar ${mobileNav ? 'open' : ''}`}>
           <div className="sidebar-top">
             <p className="eyebrow">Workspace</p>
-            <button className="workspace-select" onClick={() => notify('Acme support team is the active workspace')} aria-label="Select workspace">
-              Acme support team <ChevronDown size={14} />
-            </button>
+            <button className="workspace-select">Acme support team <ChevronDown size={14} /></button>
           </div>
           <nav className="side-nav" aria-label="Primary navigation">
             <p className="eyebrow nav-label">Views</p>
