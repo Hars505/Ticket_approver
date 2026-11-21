@@ -1,86 +1,103 @@
-# Support Ticket Triage Backend
+# Queuewatch — Automated Support Ticket Triage & Audit Console
 
-A high-throughput, provider-neutral, fail-safe asynchronous Python service that classifies customer support tickets, enforces deterministic safety guardrails, routes records to either automated triage or human review, and produces operational audit outputs and reports.
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg)](https://fastapi.tiangolo.com)
+[![React](https://img.shields.io/badge/React-18+-61DAFB.svg)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-6+-646CFF.svg)](https://vitejs.dev)
+[![Tests Passing](https://img.shields.io/badge/tests-28%20passed-brightgreen.svg)]()
 
----
-
-## Architecture Overview
-
-```
-                      +-----------------------------+
-                      | Input File (.json / .csv)   |
-                      +--------------+--------------+
-                                     |
-                                     v
-                      +-----------------------------+
-                      |     Input Loader & Clean     |
-                      |  - HTML tag removal         |
-                      |  - Whitespace normalization |
-                      |  - Row-level validation     |
-                      +--------------+--------------+
-                                     |
-                     [Malformed row or body < 15]
-                     /                           \
-                    v                             v
-+-------------------------------+      +---------------------------------+
-| Human Review:                 |      | Async LLM Classifier            |
-| "invalid_input" or            |      | - Bounded Semaphore (concurrency)|
-| "insufficient_context"        |      | - 8s timeout per attempt        |
-+-------------------------------+      | - Max 2 retries (429/5xx/net)   |
-                                       | - Exponential backoff + jitter  |
-                                       +----------------+----------------+
-                                                        |
-                                              [Terminal Failure / Bad JSON]
-                                              /                          \
-                                             v                            v
-                          +------------------------+           +----------------------+
-                          | Human Review:          |           | TriageResult Schema  |
-                          | "model_unavailable" or |           +----------+-----------+
-                          | "invalid_schema"       |                      |
-                          +------------------------+                      v
-                                                       +----------------------+
-                                                       | Deterministic        |
-                                                       | Guardrails Gate      |
-                                                       +----------+-----------+
-                                                                  |
-                                       +--------------------------+--------------------------+
-                                       |                                                     |
-                         [Passes All Guardrails]                            [Triggered Guardrail Violation]
-                                       |                                                     |
-                                       v                                                     v
-                         +---------------------------+                         +----------------------------+
-                         | `output/triaged.json`     |                         | `output/human_review.json` |
-                         | - Validated Ticket        |                         | - "low_confidence"         |
-                         | - Category & Priority     |                         | - "urgent_keyword_mismatch"|
-                         | - Confidence (>= 0.80)    |                         | - "urgent_low_confidence"  |
-                         | - Reasoning & Latency     |                         | - Preserved model draft    |
-                         +---------------------------+                         +----------------------------+
-```
+A high-throughput, provider-neutral, fail-safe support ticket triage platform. Combines structured LLM intelligence (**Google Gemini** or **OpenAI-compatible** endpoints) with **deterministic safety guardrails**, an automated **human review queue**, and an interactive **React operations console**.
 
 ---
 
-## Key Features & Invariants
+## Table of Contents
 
-1. **Strict Pydantic Validation**:
-   - Fixed 6-category taxonomy: `billing`, `technical_bug`, `account_access`, `security_privacy`, `feature_request`, `general_inquiry`.
-   - Fixed 4 priorities: `urgent`, `high`, `medium`, `low`.
-   - Bounded confidence `[0.0, 1.0]`.
-2. **Zero-Drop Guarantee**:
-   - Invariant: `len(triaged) + len(human_review) == len(input_rows)`.
-   - Every input row appears in exactly one output destination.
-3. **Deterministic Safety Guardrails**:
-   - **Insufficient Context**: Normalized body length `< 15` characters escalates immediately without model calls.
-   - **Confidence Floor**: Model confidence `< 0.80` escalates to `low_confidence`.
-   - **Urgent Keyword Mismatch**: Presence of risk keywords (`outage`, `down`, `production`, `breach`, `hacked`, `unauthorized`, `fraud`, `chargeback`, `data loss`, `lawsuit`, `can't login`) with model priority `medium` or `low` escalates to `urgent_keyword_mismatch`.
-   - **Urgent Confidence Gate**: Priority `urgent` requires confidence `>= 0.90`; otherwise escalates to `urgent_low_confidence`.
-4. **Resilient HTTP Classifier & Chaos Simulation**:
-   - Provider-neutral OpenAI-compatible JSON endpoint.
-   - 8-second timeout per attempt.
-   - Up to 2 retries on 429 rate limits, 5xx server errors, or transient network timeouts with exponential backoff and jitter.
-   - Built-in `--simulate-failures RATE` to inject chaos faults.
-   - Offline mode (`--offline`) allows full local execution and testing without credentials.
-5. **Atomic Outputs**:
-   - Writes `output/triaged.json`, `output/human_review.json`, and `output/report.md` atomically using temporary files and filesystem replace operations.
+- [System Architecture](#system-architecture)
+- [Core Invariants & Safety Guardrails](#core-invariants--safety-guardrails)
+- [Quickstart](#quickstart)
+- [Application Views & Frontend Console](#application-views--frontend-console)
+- [API Reference](#api-reference)
+- [CLI Reference](#cli-reference)
+- [LLM Provider Configuration](#llm-provider-configuration)
+- [Testing](#testing)
+- [Production Scaling: 50,000 Tickets/Day](#production-scaling-50000-ticketsday)
+
+---
+
+## System Architecture
+
+```
+                                  +-----------------------------+
+                                  | Input Queue (.json / .csv)  |
+                                  +--------------+--------------+
+                                                 |
+                                                 v
+                                  +-----------------------------+
+                                  |     Input Loader & Clean     |
+                                  |  - HTML tag removal         |
+                                  |  - Whitespace normalization |
+                                  |  - Zero-drop row validation |
+                                  +--------------+--------------+
+                                                 |
+                                [Malformed row or body < 15 chars]
+                                /                                \
+                               v                                  v
+            +-------------------------------+   +---------------------------------+
+            | Escalation:                   |   | Async LLM Classifier            |
+            | "invalid_input" or            |   | - Bounded Semaphore concurrency |
+            | "insufficient_context"        |   | - 20s timeout per attempt       |
+            +---------------+---------------+   | - Max 2 retries (429/5xx/net)   |
+                            |                   | - Exponential backoff + jitter  |
+                            |                   +----------------+----------------+
+                            |                                    |
+                            |                          [429 Rate Limit / Error]
+                            |                          /                       \
+                            |                         v                         v
+                            |           +-------------------------+  +----------------------+
+                            |           | Rate Limit Fallback /   |  | Structured Output:   |
+                            |           | "model_unavailable"    |  | TriageResult Schema  |
+                            |           +------------+------------+  +----------+-----------+
+                            |                        |                          |
+                            |                        v                          v
+                            |           +-----------------------------------------------+
+                            |           |         Deterministic Guardrails Gate         |
+                            |           |  1. Insufficient context check                |
+                            |           |  2. Confidence floor (< 0.80)                 |
+                            |           |  3. Urgent keyword mismatch check             |
+                            |           |  4. Urgent low-confidence check (< 0.90)      |
+                            |           +-----------------------+-----------------------+
+                            |                                   |
+                            |                +------------------+------------------+
+                            |                |                                     |
+                            |   [Passes All Guardrails]             [Triggered Violation]
+                            |                |                                     |
+                            v                v                                     v
+            +------------------------------------+             +------------------------------------+
+            |        `output/triaged.json`       |             |     `output/human_review.json`     |
+            | - Validated Ticket Model           |             | - Exact Escalation Reason          |
+            | - Category & Priority              |             | - Original Ticket Payload          |
+            | - Confidence Score & Reasoning     |             | - Preserved AI Draft & Latency     |
+            | - Execution Latency (ms)           |             | - Reviewer Actions Ready           |
+            +------------------------------------+             +------------------------------------+
+```
+
+---
+
+## Core Invariants & Safety Guardrails
+
+1. **Zero-Drop Guarantee**:
+   $$\text{len(triaged)} + \text{len(human\_review)} \equiv \text{len(input\_rows)}$$
+   No ticket is ever dropped, lost, or silently ignored. Every input record is strictly accounted for in exactly one output queue.
+2. **Deterministic Safety Guardrails**:
+   - **Insufficient Context**: Any ticket with a normalized body under 15 characters escalates immediately to human review without wasting LLM tokens (`insufficient_context`).
+   - **Confidence Floor**: Model confidence below `0.80` triggers escalation (`low_confidence`).
+   - **Urgent Keyword Mismatch**: Presence of critical risk keywords (`outage`, `down`, `production`, `breach`, `hacked`, `unauthorized`, `fraud`, `chargeback`, `data loss`, `lawsuit`, `can't login`) classified by the model with `medium` or `low` priority triggers escalation (`urgent_keyword_mismatch`).
+   - **Urgent Confidence Gate**: Urgent priority requires confidence $\ge 0.90$; otherwise escalates to `urgent_low_confidence`.
+3. **Fixed Taxonomy & Priorities**:
+   - **Categories (6)**: `billing`, `technical_bug`, `account_access`, `security_privacy`, `feature_request`, `general_inquiry`.
+   - **Priorities (4)**: `urgent`, `high`, `medium`, `low`.
+4. **Provider-Neutral Fail-Safe Engine**:
+   - Automatically handles Google Gemini API 15 RPM free-tier limits by auto-fallback to the rich local engine, ensuring complete batch processing without service interruption.
 
 ---
 
@@ -88,152 +105,185 @@ A high-throughput, provider-neutral, fail-safe asynchronous Python service that 
 
 ### Prerequisites
 - Python 3.11+
-- Virtual environment (recommended)
+- Node.js 18+ (optional, only needed for modifying frontend source)
 
-### Installation
+### 1. Installation
+
 ```bash
-python3 -m venv .venv
+git clone <repo-url>
+cd Tech
+
+# Create virtual environment
+python3.12 -m venv .venv
 source .venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### Environment Configuration
-Copy `.env.example` to `.env` to configure an OpenAI-compatible remote endpoint (optional for online mode):
+### 2. Launch the Application
+
+Start the combined backend and compiled frontend console in a single command:
+
 ```bash
-cp .env.example .env
+python main.py --serve --port 8000
 ```
-Edit `.env`:
-```env
-LLM_API_KEY=your-api-key-here
-LLM_BASE_URL=https://api.openai.com/v1
-LLM_MODEL=gpt-4o-mini
-```
+
+Open your browser at **[http://localhost:8000](http://localhost:8000)**.
 
 ---
 
-## Running the Pipeline
+## Application Views & Frontend Console
 
-### 1. Offline Mode (Credential-Free)
-Run against the bundled 300-ticket dataset using deterministic heuristic rules:
+The web console (`frontend/`) is built with React, Vite, Framer Motion, and Lucide:
+
+### 1. Overview & Report (`/overview`)
+- **Real-Time KPIs**: Total processed, auto-triaged rate, human review count, and average / p95 model latency.
+- **Classification Taxonomy**: Interactive category breakdown progress bars.
+- **Priority Distribution**: Visual stacked bar showing risk ratios (`urgent`, `high`, `medium`, `low`).
+- **Escalation Reason Counter**: Itemized breakdown of held tickets.
+- **Action Strip**: Instant batch upload for `.json` and `.csv` files; one-click Markdown report export.
+
+### 2. Human Review Queue (`/review`)
+- **Queue Filtering**: Filter by reason (`Urgent mismatch`, `Low confidence`, `Short body`, `Model error`).
+- **Ticket Inspector**: Displays original customer message with **highlighted risk terms**.
+- **AI Draft Box**: Inspects model classification, confidence, and reasoning.
+- **Human Decision Block**: Dropdowns to adjust Category and Priority.
+- **Keyboard Shortcut**: Press <kbd>Enter</kbd> to approve the ticket and instantly advance to the next item.
+- **Export Queue**: Downloads `human_review_queue.json` directly.
+
+### 3. Auto-Triaged Audit View (`/triaged`)
+- **Search & Filters**: Real-time search across ticket IDs, subjects, and bodies with category/priority filters.
+- **Expandable Rows**: Inspect customer message and full AI reasoning.
+- **"Flag as Wrong"**: One-click action to redirect misclassified tickets into the human review queue.
+- **Export Triaged**: Downloads `triaged_tickets.json` with full classification metadata.
+
+### 4. Settings & Guardrail Tuning (`/settings`)
+- **Confidence Threshold Slider**: Adjust cutoff score from `0.50` to `0.95`.
+- **Failure Simulation (Chaos)**: Inject synthetic error rates (`0%` to `20%`) to test fail-safe routing.
+- **Urgent Keyword Editor**: Add or remove monitored risk words dynamically.
+- **Engine Switcher**: Switch between `⚡ Local Engine` and `✨ Gemini Cloud AI` from the topbar or settings.
+
+---
+
+## API Reference
+
+The backend provides a REST API via FastAPI at `http://localhost:8000`:
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/health` | Health check, active model, and provider configuration status. |
+| `GET` | `/api/overview` | Aggregated metrics, category counts, priority distribution, and latency stats. |
+| `GET` | `/api/tickets/triaged` | Paginated auto-triaged tickets (`search`, `category`, `priority`, `limit`, `offset`). |
+| `GET` | `/api/tickets/review` | Paginated review queue tickets (`search`, `filter`, `limit`, `offset`). |
+| `POST` | `/api/tickets/{id}/approve` | Reviewer decision: approves a review ticket and moves it into `triaged.json`. |
+| `POST` | `/api/tickets/{id}/flag` | Audit action: flags a triaged ticket and routes it back to `human_review.json`. |
+| `POST` | `/api/triage/run` | Triggers a full pipeline execution (`threshold`, `simulate_failures`, `offline`, `concurrency`). |
+| `POST` | `/api/triage/single` | Live real-time classification for a single ticket body & subject. |
+| `POST` | `/api/upload` | Uploads a `.json` or `.csv` ticket file and triggers immediate triage. |
+| `GET` | `/api/report/download` | Downloads the operational Markdown report. |
+| `GET` | `/api/settings` | Retrieves current threshold, chaos rate, and urgent keyword list. |
+| `POST` | `/api/settings` | Updates runtime guardrail settings. |
+
+---
+
+## CLI Reference
+
+`main.py` provides standalone batch execution and server orchestration:
+
 ```bash
+# Start full-stack web console
+python main.py --serve --port 8000
+
+# Run batch triage offline (instant execution for 300 tickets)
 python main.py --offline --input data/tickets.json --output-dir output
-```
 
-### 2. Online Mode
-Run with remote LLM completion:
-```bash
-python main.py --input data/tickets.json --output-dir output --concurrency 10
-```
+# Run batch triage online with remote LLM
+python main.py --input data/tickets.json --output-dir output --concurrency 5
 
-### 3. Chaos Simulation
-Simulate a 10% rate of transient model failures to verify fail-closed escalation routing:
-```bash
+# Run chaos test with 10% injected failure rate
 python main.py --offline --simulate-failures 0.10 --input data/tickets.json --output-dir output
 ```
 
 ### CLI Options
-| Argument | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `--input` | Path | `data/tickets.json` | Path to JSON or CSV input file |
-| `--output-dir` | Path | `output` | Directory where outputs are written |
-| `--concurrency` | Int | `10` | Max concurrent worker tasks |
-| `--simulate-failures` | Float | `0.0` | Probability (0.0 - 1.0) of simulated model failures |
-| `--offline` | Flag | `False` | Run using local deterministic classifier |
-| `--timeout` | Float | `8.0` | Per-request timeout in seconds |
+
+| Flag | Default | Description |
+| :--- | :--- | :--- |
+| `--serve` | `False` | Launch FastAPI web server and host frontend console |
+| `--port` | `8000` | Port for the web server |
+| `--input` | `data/tickets.json` | Path to JSON or CSV input file |
+| `--output-dir` | `output` | Destination directory for output files |
+| `--offline` | `False` | Use deterministic local engine instead of cloud API |
+| `--simulate-failures` | `0.0` | Probability (0.0 to 1.0) of synthetic model failures |
+| `--concurrency` | `10` | Maximum parallel async workers |
+| `--timeout` | `20.0` | Per-request timeout in seconds |
 
 ---
 
-## Input & Output Formats
+## LLM Provider Configuration
 
-### Input Formats Supported
-- **JSON List**: Array of ticket objects containing `id`, `subject`, `body`, optional `created_at`, and arbitrary metadata fields.
-- **CSV**: Columns matching `id`, `subject`, `body`, `created_at` (extra columns preserved in metadata).
+Configure your credentials in [.env](file:///home/harshil/STUDY/Tech/.env) (copied from [.env.example](file:///home/harshil/STUDY/Tech/.env.example)):
 
-### Output Artifacts
-- **`output/triaged.json`**:
-  ```json
-  [
-    {
-      "ticket": {
-        "id": "TCK-0001",
-        "subject": "Invoice request for renewal",
-        "body": "Please provide the official invoice and VAT receipt for our annual enterprise subscription renewal. (Ref: ticket-1)",
-        "created_at": "2026-11-21T00:00:00Z",
-        "metadata": { "customer_tier": "standard", "index": 0 }
-      },
-      "triage": {
-        "category": "billing",
-        "priority": "low",
-        "confidence": 0.88,
-        "reasoning": "Offline deterministic rule matched 'billing' with priority 'low'."
-      },
-      "latency_ms": 0.12
-    }
-  ]
-  ```
+### Option 1: Google Gemini (Recommended Cloud Provider)
+```env
+LLM_API_KEY=AIzaSy...your_gemini_api_key_here
+LLM_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai
+LLM_MODEL=gemini-flash-lite-latest
+```
+*(Get a free key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey))*
 
-- **`output/human_review.json`**:
-  ```json
-  [
-    {
-      "ticket_id": "TCK-0291",
-      "ticket": {
-        "id": "TCK-0291",
-        "subject": "Help",
-        "body": "Help me",
-        "created_at": "2026-11-21T12:00:00Z",
-        "metadata": { "short_context": true }
-      },
-      "raw_data": { ... },
-      "model_draft": null,
-      "escalation_reason": "insufficient_context",
-      "latency_ms": 0.0,
-      "metadata": { "short_context": true }
-    }
-  ]
-  ```
+### Option 2: OpenAI
+```env
+LLM_API_KEY=sk-proj-...
+LLM_BASE_URL=https://api.openai.com/v1
+LLM_MODEL=gpt-4o-mini
+```
 
-- **`output/report.md`**: Markdown operational report with summary metrics, average/p50/p95 latencies, taxonomy and priority breakdowns, escalation distributions, and escaped sample tickets.
+### Option 3: Local Ollama (Zero Cost, 100% Private)
+```env
+LLM_API_KEY=ollama
+LLM_BASE_URL=http://localhost:11434/v1
+LLM_MODEL=llama3.2
+```
 
 ---
 
 ## Testing
 
-Run the automated test suite covering schemas, input loading, guardrails, async classifier retries, and pipeline invariants:
+Run the full pytest suite covering schemas, normalizers, guardrails, async retry logic, pipeline invariants, and API endpoints:
+
 ```bash
 pytest -v
 ```
 
+```
+tests/test_schemas.py      ....                                   [ 14%]
+tests/test_loader.py       .....                                  [ 32%]
+tests/test_guardrails.py   .......                                [ 57%]
+tests/test_classifier.py   .....                                  [ 75%]
+tests/test_pipeline.py     .                                      [ 78%]
+tests/test_api.py          ......                                 [100%]
+============================== 28 passed in 1.15s ==============================
+```
+
 ---
 
-## Scaling to 50,000 Tickets / Day: Architectural Roadmap
+## Production Scaling: 50,000 Tickets/Day
 
-To scale this service from batch runs to a continuous 50,000 ticket/day production workload (~35 tickets/min average, ~150-300 tickets/min peak), implement the following six architectural enhancements:
+To transition from batch processing to continuous enterprise throughput (~35 tickets/min average, ~250 tickets/min peak), implement the following six architectural steps:
 
-1. **Distributed Queue Ingestion**:
-   - Replace filesystem batch loading with partitioned message queues (Apache Kafka, AWS SQS, or Redis Streams).
-   - Ingestion workers validate and normalize incoming webhooks/events and publish to an `incoming-tickets` topic, decoupling upstream webhook producers from processing latency spikes.
-
-2. **Tiered Deterministic Routing & Semantic Caching**:
-   - **Tier 0 Deterministic Filter**: High-precision regex rules bypass the LLM for canonical transactional requests (e.g., standard "resend invoice" or "unsubscribe"), triaging up to 25-35% of volume in < 2ms.
-   - **Semantic Vector Cache**: Exact-match hashing and embedding similarity cache (e.g. Redis + Qdrant) over normalized query texts to reuse triages for identical inquiries without LLM token cost.
-
-3. **Multi-Provider Failover & Circuit Breaking**:
-   - Integrate circuit breakers (e.g. sliding window failure rates).
-   - If primary provider (e.g. OpenAI) returns sustained 5xx/429 errors, automatically divert traffic to secondary providers (e.g. Anthropic, Google Gemini, or a self-hosted vLLM cluster).
-
-4. **Continuous Quality Monitoring & Drift Detection**:
-   - Stream triage events to an observability sink (Prometheus / OpenTelemetry / ClickHouse).
-   - Set automated alerting on:
-     - Escalation rate anomalies (e.g., human review rate spiking above historical baseline).
-     - Confidence distribution drift (Kolmogorov-Smirnov test over rolling 1-hour windows).
-     - Category distribution shifts signaling emerging incidents.
-
-5. **Golden Datasets & Continuous Shadow Audits**:
-   - Maintain a curated "Golden Dataset" of 2,000 human-annotated edge cases run against CI/CD pipelines on every prompt or model upgrade.
-   - Implement shadow sampling: randomly route 2% of automated triages to secondary human review to continuously compute precision, recall, and false-positive rates.
-
-6. **Cost & Latency SLO Management**:
-   - Target Latency SLO: p95 `< 1200ms`, p99 `< 2500ms`.
-   - Dynamic Model Cascades: Route standard queries to cost-efficient models (e.g., `gpt-4o-mini`, `gemini-1.5-flash`), reserving larger reasoning models only for high-entropy tickets that fail confidence thresholds on the first pass.
-
+1. **Distributed Event Streaming**:
+   - Transition input loading to Apache Kafka or AWS SQS with partitioned consumer worker pools. Decouple incoming webhook ingestion from classifier processing latency.
+2. **Tier-0 Deterministic Routing & Semantic Caching**:
+   - High-precision regex rules triage canonical requests (e.g. standard "invoice receipt" or "reset password") in `< 2ms`, handling 25–35% of volume with zero LLM token costs.
+   - Exact-match hashing and embedding similarity caching (Redis + Qdrant) avoid re-classifying duplicate inquiries.
+3. **Multi-Region Failover & Circuit Breaking**:
+   - Implement sliding-window circuit breakers. If primary provider (e.g. Gemini) returns 429/5xx, divert traffic across secondary providers (OpenAI, Anthropic, or self-hosted vLLM).
+4. **Automated Drift & Quality Monitoring**:
+   - Stream triage metrics to Prometheus / OpenTelemetry. Alert on escalation rate spikes ($> 20\%$) or category distribution drift indicating emerging platform incidents.
+5. **Golden Datasets & Shadow QA**:
+   - Continuous CI validation against a 2,000-ticket curated edge-case dataset.
+   - Automatically route a 2% random sample of auto-triaged tickets to human QA to track false-positive rates.
+6. **Latency SLO & Cascading Models**:
+   - Target SLO: p95 $< 1200\text{ms}$, p99 $< 2500\text{ms}$.
+   - Cascade small, fast models (`gemini-flash-lite`, `gpt-4o-mini`) for tier-1 classification, reserving larger reasoning models only for high-entropy tickets that fail initial confidence gates.
