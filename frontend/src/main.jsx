@@ -16,6 +16,7 @@ import {
   Layers3,
   Menu,
   Play,
+  Plus,
   Search,
   Settings2,
   ShieldCheck,
@@ -27,23 +28,27 @@ import {
 } from 'lucide-react'
 import './styles.css'
 
-const categories = ['billing', 'technical_bug', 'account_access', 'security_privacy', 'feature_request', 'general_inquiry']
+const categories = [
+  'billing',
+  'technical_bug',
+  'account_access',
+  'security_privacy',
+  'feature_request',
+  'general_inquiry',
+]
 const priorities = ['urgent', 'high', 'medium', 'low']
-const riskTerms = ['outage', 'down', 'production', 'breach', 'hacked', 'unauthorized', 'fraud', 'chargeback', 'data loss', 'lawsuit', "can't login"]
-
-const fallbackTickets = [
-  { id: 'TCK-0001', subject: 'Invoice request for renewal', body: 'Please provide the official invoice and VAT receipt for our annual enterprise subscription renewal.', category: 'billing', priority: 'low', confidence: 0.94, latency: 182, reasoning: "The request is explicitly about an invoice for a subscription renewal." },
-  { id: 'TCK-0002', subject: 'Charged twice for subscription', body: 'I checked my bank statement and noticed a double charge on November 15th. Please refund the duplicate.', category: 'billing', priority: 'high', confidence: 0.96, latency: 205, reasoning: "A duplicate payment requires prompt billing support and a refund review." },
-  { id: 'TCK-0003', subject: 'Can’t access admin console', body: 'Our admin is locked out after the latest sign-in attempt and cannot access the organization console.', category: 'account_access', priority: 'high', confidence: 0.91, latency: 238, reasoning: "The issue blocks an administrator from accessing the account." },
-  { id: 'TCK-0004', subject: 'Production API is down', body: 'Our production API is down across all regions. We are seeing a full outage and customer requests are failing.', category: 'technical_bug', priority: 'urgent', confidence: 0.98, latency: 311, reasoning: "A production outage affecting all regions is an urgent technical incident." },
-  { id: 'TCK-0005', subject: 'Please add webhook retries', body: 'Would it be possible to add configurable webhook retries and a dashboard for failed deliveries?', category: 'feature_request', priority: 'low', confidence: 0.89, latency: 166, reasoning: "The customer is requesting a product enhancement rather than reporting a defect." },
-  { id: 'TCK-0006', subject: 'Suspicious charge on card', body: 'I do not recognize this charge and believe my account may have been compromised. Please investigate immediately.', category: 'security_privacy', priority: 'urgent', confidence: 0.93, latency: 287, reasoning: "An unrecognized charge may indicate fraud and warrants urgent review." },
-  { id: 'TCK-0007', subject: 'How do I export data?', body: 'I would like to understand how to export our workspace data for an internal quarterly report.', category: 'general_inquiry', priority: 'low', confidence: 0.95, latency: 141, reasoning: "This is a straightforward product usage question with no immediate risk." },
-  { id: 'TCK-0008', subject: 'Breach notification question', body: 'We saw reports about a potential breach and need to know whether our workspace was affected.', category: 'security_privacy', priority: 'urgent', confidence: 0.88, latency: 365, reasoning: "The mention of a potential breach requires a human to verify the incident context." },
-  { id: 'TCK-0009', subject: 'Login reset email never arrives', body: 'I have tried the password reset flow three times but never receive the email to regain access.', category: 'account_access', priority: 'medium', confidence: 0.78, latency: 219, reasoning: "The account-access issue is clear, but the model confidence is below the safe threshold." },
-  { id: 'TCK-0010', subject: 'The dashboard feels slow', body: 'The analytics dashboard takes around ten seconds to load for our team during the afternoon.', category: 'technical_bug', priority: 'medium', confidence: 0.83, latency: 274, reasoning: "The report describes a performance issue without signs of a full outage." },
-  { id: 'TCK-0011', subject: 'Need a new team member seat', body: 'Can you tell me how billing works when I add another team member to our workspace?', category: 'billing', priority: 'low', confidence: 0.93, latency: 153, reasoning: "The question concerns subscription billing for an additional seat." },
-  { id: 'TCK-0012', subject: 'Help plz', body: 'Help plz', category: null, priority: null, confidence: null, latency: 0, reasoning: null, escalation_reason: 'insufficient_context' },
+const defaultRiskTerms = [
+  'outage',
+  'down',
+  'production',
+  'breach',
+  'hacked',
+  'unauthorized',
+  'fraud',
+  'chargeback',
+  'data loss',
+  'lawsuit',
+  "can't login",
 ]
 
 const navItems = [
@@ -58,9 +63,9 @@ const API_BASE = window.location.port === '5173' ? '' : 'http://localhost:8000'
 function App() {
   const [activeView, setActiveView] = useState('overview')
   const [isRunning, setIsRunning] = useState(false)
-  const [progress, setProgress] = useState(300)
   const [threshold, setThreshold] = useState(0.8)
   const [chaos, setChaos] = useState(0)
+  const [riskTerms, setRiskTerms] = useState(defaultRiskTerms)
   const [reviewFilter, setReviewFilter] = useState('all')
   const [selectedId, setSelectedId] = useState('')
   const [search, setSearch] = useState('')
@@ -78,10 +83,21 @@ function App() {
     p95Latency: 0.2,
     totalRuntime: 0.08,
     categoryData: [
-      ['Billing', 53, 'billing'], ['Technical bug', 21, 'technical_bug'], ['Account access', 66, 'account_access'], ['Security & privacy', 21, 'security_privacy'], ['Feature request', 27, 'feature_request'], ['General inquiry', 103, 'general_inquiry'],
+      ['Billing', 53, 'billing'],
+      ['Technical bug', 21, 'technical_bug'],
+      ['Account access', 66, 'account_access'],
+      ['Security & privacy', 21, 'security_privacy'],
+      ['Feature request', 27, 'feature_request'],
+      ['General inquiry', 103, 'general_inquiry'],
     ],
     priorities: { urgent: 33, high: 0, medium: 9, low: 249 },
-    escalationReasons: { low_confidence: 0, urgent_keyword_mismatch: 0, model_unavailable: 0, insufficient_context: 8, invalid_input: 1 },
+    escalationReasons: {
+      low_confidence: 0,
+      urgent_keyword_mismatch: 0,
+      model_unavailable: 0,
+      insufficient_context: 8,
+      invalid_input: 1,
+    },
   })
 
   const [triagedTickets, setTriagedTickets] = useState([])
@@ -111,33 +127,50 @@ function App() {
         fetch(`${API_BASE}/api/tickets/triaged?limit=1000`),
         fetch(`${API_BASE}/api/tickets/review?limit=1000`),
       ])
-      if (triagedRes.ok && reviewRes.ok) {
-        const tData = await triagedRes.json()
-        const rData = await reviewRes.json()
-        setTriagedTickets(tData.tickets || [])
-        setReviewTickets(rData.tickets || [])
-        if (!selectedId && rData.tickets && rData.tickets.length > 0) {
-          setSelectedId(rData.tickets[0].id)
-        }
-      }
+      if (!triagedRes.ok || !reviewRes.ok) throw new Error('Ticket endpoint unavailable')
+      const tData = await triagedRes.json()
+      const rData = await reviewRes.json()
+      setTriagedTickets(tData.tickets || [])
+      setReviewTickets(rData.tickets || [])
+      if (rData.tickets?.length > 0) setSelectedId(current => current || rData.tickets[0].id)
     } catch (err) {
       console.warn('API tickets fetch fallback:', err)
-      const r = fallbackTickets.filter(t => t.escalation_reason || (t.confidence && t.confidence < 0.8))
-      const t = fallbackTickets.filter(t => !r.includes(t))
-      setReviewTickets(r)
-      setTriagedTickets(t)
-      if (!selectedId && r.length > 0) setSelectedId(r[0].id)
+      const review = fallbackTickets.filter(ticket => ticket.escalation_reason || (ticket.confidence && ticket.confidence < threshold))
+      const triaged = fallbackTickets.filter(ticket => !review.includes(ticket))
+      setTriagedTickets(triaged)
+      setReviewTickets(review)
+      if (review.length > 0) setSelectedId(current => current || review[0].id)
+    }
+  }
+
+  async function fetchSettings() {
+    try {
+      const res = await fetch(`${API_BASE}/api/settings`)
+      if (res.ok) {
+        const data = await res.json()
+        if (data.threshold) setThreshold(data.threshold)
+        if (data.chaos !== undefined) setChaos(data.chaos)
+        if (data.risk_keywords) setRiskTerms(data.risk_keywords)
+      }
+    } catch (err) {
+      console.warn('Settings fetch fallback:', err)
     }
   }
 
   useEffect(() => {
     fetchOverview()
     fetchTickets()
+    fetchSettings()
   }, [])
 
   const filteredTriaged = useMemo(() => {
     return triagedTickets.filter(ticket => {
-      const matchesSearch = `${ticket.id} ${ticket.subject} ${ticket.body}`.toLowerCase().includes(search.toLowerCase())
+      const s = search.toLowerCase()
+      const matchesSearch =
+        !s ||
+        (ticket.id && ticket.id.toLowerCase().includes(s)) ||
+        (ticket.subject && ticket.subject.toLowerCase().includes(s)) ||
+        (ticket.body && ticket.body.toLowerCase().includes(s))
       const matchesCategory = categoryFilter === 'all' || ticket.category === categoryFilter
       const matchesPriority = priorityFilter === 'all' || ticket.priority === priorityFilter
       return matchesSearch && matchesCategory && matchesPriority
@@ -145,6 +178,7 @@ function App() {
   }, [triagedTickets, search, categoryFilter, priorityFilter])
 
   const selectedTicket = useMemo(() => {
+    if (!reviewTickets.length) return null
     return reviewTickets.find(ticket => ticket.id === selectedId) || reviewTickets[0]
   }, [reviewTickets, selectedId])
 
@@ -166,7 +200,7 @@ function App() {
         const result = await res.json()
         notify(`Triage finished: ${result.triaged} triaged, ${result.human_review} in review`)
       } else {
-        notify('Triage completed locally')
+        notify('Triage completed')
       }
     } catch (err) {
       notify('Triage triggered')
@@ -186,6 +220,12 @@ function App() {
       })
       if (res.ok) {
         notify(`${ticketId} approved & moved to auto-triaged`)
+        // Auto-advance to next ticket in review list
+        const currentIndex = reviewTickets.findIndex(t => t.id === ticketId)
+        if (currentIndex !== -1 && reviewTickets.length > 1) {
+          const nextIndex = currentIndex < reviewTickets.length - 1 ? currentIndex + 1 : currentIndex - 1
+          setSelectedId(reviewTickets[nextIndex].id)
+        }
         await fetchOverview()
         await fetchTickets()
       } else {
@@ -214,6 +254,17 @@ function App() {
     notify('Report download started')
   }
 
+  function exportJSON(filename, data) {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = filename
+    a.click()
+    URL.revokeObjectURL(a)
+    notify(`Downloaded ${filename}`)
+  }
+
   function handleFileSelect(e) {
     const file = e.target.files?.[0]
     if (!file) return
@@ -230,9 +281,47 @@ function App() {
       .catch(() => notify('Upload complete'))
   }
 
+  async function updateSettings(newSettings) {
+    try {
+      await fetch(`${API_BASE}/api/settings`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newSettings),
+      })
+    } catch (err) {
+      console.warn('Failed to save settings:', err)
+    }
+  }
+
+  function addKeyword() {
+    const word = window.prompt('Enter new urgent risk keyword (e.g. ransomware):')
+    if (word && word.trim()) {
+      const trimmed = word.trim().toLowerCase()
+      if (!riskTerms.includes(trimmed)) {
+        const next = [...riskTerms, trimmed]
+        setRiskTerms(next)
+        updateSettings({ risk_keywords: next })
+        notify(`Added “${trimmed}” to urgent keywords`)
+      }
+    }
+  }
+
+  function removeKeyword(term) {
+    const next = riskTerms.filter(t => t !== term)
+    setRiskTerms(next)
+    updateSettings({ risk_keywords: next })
+    notify(`Removed “${term}”`)
+  }
+
   return (
     <div className="app-shell">
-      <input type="file" ref={fileInputRef} onChange={handleFileSelect} accept=".json,.csv" style={{ display: 'none' }} />
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={handleFileSelect}
+        accept=".json,.csv"
+        style={{ display: 'none' }}
+      />
       <header className="topbar">
         <div className="brand-lockup">
           <div className="brand-mark"><Activity size={17} strokeWidth={2.4} /></div>
@@ -243,7 +332,7 @@ function App() {
         <div className="topbar-actions">
           <div className="run-status">
             <span className={`status-dot ${isRunning ? 'is-running' : ''}`} />
-            {isRunning ? 'Triage running…' : `${overviewData.total} tickets processed`}
+            {isRunning ? 'Triage running…' : `${overviewData.total || 0} tickets processed`}
           </div>
           <button className="button button-primary" onClick={runTriage} disabled={isRunning}>
             <Play size={15} fill="currentColor" /> {isRunning ? 'Running…' : 'Run triage'}
@@ -251,7 +340,11 @@ function App() {
           <button className="button button-ghost top-download" onClick={downloadReport}>
             <Download size={15} /> <span>Download report</span>
           </button>
-          <button className="mobile-menu" onClick={() => setMobileNav(!mobileNav)} aria-label="Toggle navigation">
+          <button
+            className="mobile-menu"
+            onClick={() => setMobileNav(!mobileNav)}
+            aria-label="Toggle navigation"
+          >
             <Menu size={19} />
           </button>
         </div>
@@ -273,7 +366,9 @@ function App() {
               >
                 <Icon size={17} strokeWidth={activeView === id ? 2.3 : 1.8} />
                 <span>{label}</span>
-                {id === 'review' && reviewTickets.length > 0 && <span className="nav-badge">{reviewTickets.length}</span>}
+                {id === 'review' && reviewTickets.length > 0 && (
+                  <span className="nav-badge">{reviewTickets.length}</span>
+                )}
               </button>
             ))}
           </nav>
@@ -317,7 +412,9 @@ function App() {
                   filter={reviewFilter}
                   setFilter={setReviewFilter}
                   onApprove={handleApprove}
+                  onExport={() => exportJSON('human_review_queue.json', reviewTickets)}
                   notify={notify}
+                  riskTerms={riskTerms}
                 />
               )}
               {activeView === 'triaged' && (
@@ -332,15 +429,19 @@ function App() {
                   expandedId={expandedId}
                   setExpandedId={setExpandedId}
                   onFlag={handleFlag}
+                  onExport={() => exportJSON('triaged_tickets.json', filteredTriaged)}
                   notify={notify}
                 />
               )}
               {activeView === 'settings' && (
                 <Settings
                   threshold={threshold}
-                  setThreshold={setThreshold}
+                  setThreshold={v => { setThreshold(v); updateSettings({ threshold: v }) }}
                   chaos={chaos}
-                  setChaos={setChaos}
+                  setChaos={v => { setChaos(v); updateSettings({ chaos: v }) }}
+                  riskTerms={riskTerms}
+                  onAddKeyword={addKeyword}
+                  onRemoveKeyword={removeKeyword}
                   notify={notify}
                   onRunTriage={runTriage}
                 />
@@ -351,7 +452,12 @@ function App() {
       </div>
       <AnimatePresence>
         {toast && (
-          <motion.div className="toast" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 12 }}>
+          <motion.div
+            className="toast"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 12 }}
+          >
             <Check size={16} />{toast}
           </motion.div>
         )}
@@ -374,8 +480,17 @@ function PageIntro({ kicker, title, description, action }) {
 }
 
 function Overview({ overviewData, onNavigate, onDownload, onUpload }) {
-  const { total, autoCount, humanReviewCount, avgLatency, p95Latency, totalRuntime, categoryData, priorities, escalationReasons } = overviewData
-  const max = Math.max(...categoryData.map(c => c[1]), 1)
+  const total = overviewData?.total || 0
+  const autoCount = overviewData?.autoCount || 0
+  const humanReviewCount = overviewData?.humanReviewCount || 0
+  const avgLatency = overviewData?.avgLatency || 0
+  const p95Latency = overviewData?.p95Latency || 0
+  const totalRuntime = overviewData?.totalRuntime || 0.08
+  const categoryData = overviewData?.categoryData || []
+  const priorities = overviewData?.priorities || { urgent: 0, high: 0, medium: 0, low: 0 }
+  const escalationReasons = overviewData?.escalationReasons || {}
+
+  const max = Math.max(...categoryData.map(c => Number(c[1]) || 0), 1)
 
   return (
     <>
@@ -443,7 +558,7 @@ function Overview({ overviewData, onNavigate, onDownload, onUpload }) {
                   <motion.div
                     className={`bar-fill category-${key}`}
                     initial={{ width: 0 }}
-                    animate={{ width: `${(value / max) * 100}%` }}
+                    animate={{ width: `${((Number(value) || 0) / max) * 100}%` }}
                     transition={{ duration: 0.65, delay: 0.08 }}
                   />
                 </div>
@@ -464,16 +579,16 @@ function Overview({ overviewData, onNavigate, onDownload, onUpload }) {
           </div>
           <div className="priority-visual">
             <div className="priority-stack">
-              <div className="stack-urgent" style={{ width: `${(priorities.urgent / (total || 1)) * 100}%` }} />
-              <div className="stack-high" style={{ width: `${(priorities.high / (total || 1)) * 100}%` }} />
-              <div className="stack-medium" style={{ width: `${(priorities.medium / (total || 1)) * 100}%` }} />
-              <div className="stack-low" style={{ width: `${(priorities.low / (total || 1)) * 100}%` }} />
+              <div className="stack-urgent" style={{ width: `${((priorities.urgent || 0) / (total || 1)) * 100}%` }} />
+              <div className="stack-high" style={{ width: `${((priorities.high || 0) / (total || 1)) * 100}%` }} />
+              <div className="stack-medium" style={{ width: `${((priorities.medium || 0) / (total || 1)) * 100}%` }} />
+              <div className="stack-low" style={{ width: `${((priorities.low || 0) / (total || 1)) * 100}%` }} />
             </div>
             <div className="priority-legend">
-              <Legend color="urgent" label="Urgent" value={priorities.urgent} />
-              <Legend color="high" label="High" value={priorities.high} />
-              <Legend color="medium" label="Medium" value={priorities.medium} />
-              <Legend color="low" label="Low" value={priorities.low} />
+              <Legend color="urgent" label="Urgent" value={priorities.urgent || 0} />
+              <Legend color="high" label="High" value={priorities.high || 0} />
+              <Legend color="medium" label="Medium" value={priorities.medium || 0} />
+              <Legend color="low" label="Low" value={priorities.low || 0} />
             </div>
           </div>
           <div className="escalation-box">
@@ -543,7 +658,7 @@ function Legend({ color, label, value }) {
   )
 }
 
-function ReviewQueue({ tickets, selected, selectedId, setSelectedId, filter, setFilter, onApprove, notify }) {
+function ReviewQueue({ tickets, selected, selectedId, setSelectedId, filter, setFilter, onApprove, onExport, notify, riskTerms }) {
   const [chosenCat, setChosenCat] = useState('general_inquiry')
   const [chosenPrio, setChosenPrio] = useState('medium')
 
@@ -553,6 +668,20 @@ function ReviewQueue({ tickets, selected, selectedId, setSelectedId, filter, set
       setChosenPrio(selected.priority || 'medium')
     }
   }, [selected])
+
+  // Support Enter keypress to approve current ticket
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === 'Enter' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) {
+        if (selected) {
+          e.preventDefault()
+          onApprove(selected.id, chosenCat, chosenPrio)
+        }
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [selected, chosenCat, chosenPrio, onApprove])
 
   const filters = [
     ['all', 'All'],
@@ -571,8 +700,8 @@ function ReviewQueue({ tickets, selected, selectedId, setSelectedId, filter, set
         title="Clear the uncertain ones."
         description="Every ticket here was held back by a guardrail. Resolve the draft before it reaches a customer."
         action={
-          <button className="button button-secondary" onClick={() => notify('Review queue exported')}>
-            <Download size={15} /> Export queue
+          <button className="button button-secondary" onClick={onExport}>
+            <Download size={15} /> Export queue ({tickets.length})
           </button>
         }
       />
@@ -631,7 +760,7 @@ function ReviewQueue({ tickets, selected, selectedId, setSelectedId, filter, set
             </div>
             <div className="inspector-block">
               <div className="block-label"><FileText size={14} /> Original ticket</div>
-              <p className="ticket-body">{highlightRisk(selected.body)}</p>
+              <p className="ticket-body">{highlightRisk(selected.body, riskTerms)}</p>
             </div>
             <div className={`draft-box ${!selected.category ? 'failed' : ''}`}>
               {selected.category ? (
@@ -688,15 +817,17 @@ function ReviewQueue({ tickets, selected, selectedId, setSelectedId, filter, set
   )
 }
 
-function highlightRisk(text) {
+function highlightRisk(text, riskList = defaultRiskTerms) {
   if (!text) return 'No ticket body available.'
-  const parts = text.split(new RegExp(`(${riskTerms.join('|')})`, 'gi'))
+  const str = typeof text === 'string' ? text : String(text)
+  const escaped = riskList.map(r => r.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+  const parts = str.split(new RegExp(`(${escaped.join('|')})`, 'gi'))
   return parts.map((part, index) =>
-    riskTerms.some(term => term.toLowerCase() === part.toLowerCase()) ? <mark key={index}>{part}</mark> : part
+    riskList.some(term => term.toLowerCase() === part.toLowerCase()) ? <mark key={index}>{part}</mark> : part
   )
 }
 
-function TriagedView({ tickets, search, setSearch, category, setCategory, priority, setPriority, expandedId, setExpandedId, onFlag, notify }) {
+function TriagedView({ tickets, search, setSearch, category, setCategory, priority, setPriority, expandedId, setExpandedId, onFlag, onExport, notify }) {
   return (
     <>
       <PageIntro
@@ -704,7 +835,7 @@ function TriagedView({ tickets, search, setSearch, category, setCategory, priori
         title="What passed the gate."
         description="Spot-check the tickets that met the confidence and risk rules without human intervention."
         action={
-          <button className="button button-secondary" onClick={() => notify('Triaged tickets list ready')}>
+          <button className="button button-secondary" onClick={onExport}>
             <Download size={15} /> Export triaged ({tickets.length})
           </button>
         }
@@ -743,16 +874,16 @@ function TriagedView({ tickets, search, setSearch, category, setCategory, priori
                 <React.Fragment key={ticket.id}>
                   <tr className={expandedId === ticket.id ? 'expanded-row' : ''}>
                     <td><strong>{ticket.id}</strong></td>
-                    <td className="subject-cell">{ticket.subject}</td>
-                    <td><span className="category-pill">{ticket.category?.replace('_', ' ')}</span></td>
-                    <td><span className={`priority-badge ${ticket.priority}`}>{ticket.priority}</span></td>
+                    <td className="subject-cell">{ticket.subject || '(No subject)'}</td>
+                    <td><span className="category-pill">{ticket.category ? ticket.category.replace('_', ' ') : 'Unassigned'}</span></td>
+                    <td><span className={`priority-badge ${ticket.priority || 'low'}`}>{ticket.priority || 'low'}</span></td>
                     <td>
                       <div className="confidence-cell">
                         <span>{Math.round((ticket.confidence || 0) * 100)}%</span>
                         <i><b style={{ width: `${(ticket.confidence || 0) * 100}%` }} /></i>
                       </div>
                     </td>
-                    <td className="latency-cell">{ticket.latency}ms</td>
+                    <td className="latency-cell">{ticket.latency || 0}ms</td>
                     <td>
                       <button className="icon-button" onClick={() => setExpandedId(expandedId === ticket.id ? null : ticket.id)}>
                         <ChevronDown size={15} className={expandedId === ticket.id ? 'rotate' : ''} />
@@ -769,7 +900,7 @@ function TriagedView({ tickets, search, setSearch, category, setCategory, priori
                           </div>
                           <div>
                             <span>AI reasoning</span>
-                            <p>{ticket.reasoning}</p>
+                            <p>{ticket.reasoning || 'No reasoning provided.'}</p>
                           </div>
                           <button className="button button-danger" onClick={() => onFlag(ticket.id)}>
                             <AlertTriangle size={14} /> Flag as wrong
@@ -789,7 +920,7 @@ function TriagedView({ tickets, search, setSearch, category, setCategory, priori
   )
 }
 
-function Settings({ threshold, setThreshold, chaos, setChaos, notify, onRunTriage }) {
+function Settings({ threshold, setThreshold, chaos, setChaos, riskTerms, onAddKeyword, onRemoveKeyword, notify, onRunTriage }) {
   return (
     <>
       <PageIntro
@@ -855,10 +986,12 @@ function Settings({ threshold, setThreshold, chaos, setChaos, notify, onRunTriag
             {riskTerms.map(term => (
               <span className="keyword-chip" key={term}>
                 {term}
-                <button onClick={() => notify(`Removed “${term}” from this preview`)} aria-label={`Remove ${term}`}><X size={12} /></button>
+                <button onClick={() => onRemoveKeyword(term)} aria-label={`Remove ${term}`}><X size={12} /></button>
               </span>
             ))}
-            <button className="add-keyword" onClick={() => notify('Keyword editor opened')}><span>+</span> Add keyword</button>
+            <button className="add-keyword" onClick={onAddKeyword}>
+              <Plus size={14} /> Add keyword
+            </button>
           </div>
         </section>
       </div>
