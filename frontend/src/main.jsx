@@ -249,9 +249,33 @@ function App() {
     }
   }
 
-  function downloadReport() {
-    window.open(`${API_BASE}/api/report/download`, '_blank')
-    notify('Report download started')
+  async function downloadReport() {
+    try {
+      const res = await fetch(`${API_BASE}/api/report/download`)
+      if (!res.ok) throw new Error('Report unavailable')
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'ticket_triage_report.md'
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      window.setTimeout(() => URL.revokeObjectURL(url), 0)
+      notify('Report downloaded')
+    } catch (err) {
+      const report = `# Support Ticket Triage Report\n\nProcessed: ${overviewData.total}\nAuto-triaged: ${overviewData.autoCount}\nHuman review: ${overviewData.humanReviewCount}\nThreshold: ${threshold.toFixed(2)}\nFailure simulation: ${(chaos * 100).toFixed(0)}%\n`
+      const blob = new Blob([report], { type: 'text/markdown' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'report.md'
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      window.setTimeout(() => URL.revokeObjectURL(url), 0)
+      notify('Report downloaded from current data')
+    }
   }
 
   function exportJSON(filename, data) {
@@ -260,25 +284,29 @@ function App() {
     const a = document.createElement('a')
     a.href = url
     a.download = filename
+    document.body.appendChild(a)
     a.click()
-    URL.revokeObjectURL(a)
+    a.remove()
+    window.setTimeout(() => URL.revokeObjectURL(url), 0)
     notify(`Downloaded ${filename}`)
   }
 
-  function handleFileSelect(e) {
+  async function handleFileSelect(e) {
     const file = e.target.files?.[0]
+    e.target.value = ''
     if (!file) return
     const formData = new FormData()
     formData.append('file', file)
     notify(`Uploading ${file.name}…`)
-    fetch(`${API_BASE}/api/upload`, { method: 'POST', body: formData })
-      .then(r => r.json())
-      .then(d => {
-        notify(`Uploaded & processed ${d.total_tickets} tickets!`)
-        fetchOverview()
-        fetchTickets()
-      })
-      .catch(() => notify('Upload complete'))
+    try {
+      const res = await fetch(`${API_BASE}/api/upload`, { method: 'POST', body: formData })
+      if (!res.ok) throw new Error('Upload failed')
+      const data = await res.json()
+      notify(`Uploaded & processed ${data.total_tickets} tickets`)
+      await Promise.all([fetchOverview(), fetchTickets()])
+    } catch (err) {
+      notify('Upload failed — use a JSON or CSV ticket file')
+    }
   }
 
   async function updateSettings(newSettings) {
@@ -302,6 +330,8 @@ function App() {
         setRiskTerms(next)
         updateSettings({ risk_keywords: next })
         notify(`Added “${trimmed}” to urgent keywords`)
+      } else {
+        notify(`“${trimmed}” is already in the keyword list`)
       }
     }
   }
@@ -354,7 +384,9 @@ function App() {
         <aside className={`sidebar ${mobileNav ? 'open' : ''}`}>
           <div className="sidebar-top">
             <p className="eyebrow">Workspace</p>
-            <button className="workspace-select">Acme support team <ChevronDown size={14} /></button>
+            <button className="workspace-select" onClick={() => notify('Acme support team is the active workspace')} aria-label="Select workspace">
+              Acme support team <ChevronDown size={14} />
+            </button>
           </div>
           <nav className="side-nav" aria-label="Primary navigation">
             <p className="eyebrow nav-label">Views</p>
